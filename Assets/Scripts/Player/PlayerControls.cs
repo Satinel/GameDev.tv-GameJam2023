@@ -80,6 +80,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""76cf6c2f-b002-480d-a0cf-7e4ddba531aa"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""ToggleWalk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a21d9cd5-0bdc-451f-a54d-af221526e30d"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40bf7b9d-b991-44d8-bd97-b8b9f1e2de42"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -289,6 +320,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_ZSquish = m_Player.FindAction("ZSquish", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_ToggleWalk = m_Player.FindAction("ToggleWalk", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -354,6 +386,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ZSquish;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_ToggleWalk;
+    private readonly InputAction m_Player_Look;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -364,6 +397,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @ZSquish => m_Wrapper.m_Player_ZSquish;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @ToggleWalk => m_Wrapper.m_Player_ToggleWalk;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,6 +425,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ToggleWalk.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleWalk;
                 @ToggleWalk.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleWalk;
                 @ToggleWalk.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleWalk;
+                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -413,6 +450,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ToggleWalk.started += instance.OnToggleWalk;
                 @ToggleWalk.performed += instance.OnToggleWalk;
                 @ToggleWalk.canceled += instance.OnToggleWalk;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
         }
     }
@@ -443,5 +483,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnZSquish(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnToggleWalk(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
 }

@@ -1096,6 +1096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2666688170681517873}
   - component: {fileID: 2666688170681517872}
+  - component: {fileID: 5617351315020314244}
   m_Layer: 0
   m_Name: Princess
   m_TagString: Untagged
@@ -1120,6 +1121,7 @@ Transform:
   - {fileID: 2893083887819798688}
   - {fileID: 8914630214705620630}
   - {fileID: 1752509579232002869}
+  - {fileID: 2528153531114676877}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1143,6 +1145,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &5617351315020314244
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335525133178969483}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.95, z: 0.1}
 --- !u!1 &3371759089904354389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1468,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00013350649, y: 0.016426872, z: 0.00035021087}
     m_Extent: {x: 0.0012140094, y: 0.0018180762, z: 0.0018170029}
   m_DirtyAABB: 0
+--- !u!1 &3878716905436632643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2528153531114676877}
+  m_Layer: 0
+  m_Name: CamFocus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2528153531114676877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878716905436632643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2666688170681517873}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3931216298333225133
 GameObject:
   m_ObjectHideFlags: 0
