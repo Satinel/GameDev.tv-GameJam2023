@@ -71,6 +71,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleWalk"",
+                    ""type"": ""Button"",
+                    ""id"": ""0dfd8fdc-c845-4ecc-875e-53143b634557"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -198,10 +207,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1e228084-8622-4f0b-b89a-a64b7a936b96"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""ZSquish"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -225,6 +234,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df075bc9-8742-4a5d-bf26-8d665cb6bbef"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ToggleWalk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -268,6 +288,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_YSquish = m_Player.FindAction("YSquish", throwIfNotFound: true);
         m_Player_ZSquish = m_Player.FindAction("ZSquish", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_ToggleWalk = m_Player.FindAction("ToggleWalk", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +353,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_YSquish;
     private readonly InputAction m_Player_ZSquish;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_ToggleWalk;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -341,6 +363,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @YSquish => m_Wrapper.m_Player_YSquish;
         public InputAction @ZSquish => m_Wrapper.m_Player_ZSquish;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @ToggleWalk => m_Wrapper.m_Player_ToggleWalk;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +388,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @ToggleWalk.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleWalk;
+                @ToggleWalk.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleWalk;
+                @ToggleWalk.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleWalk;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -384,6 +410,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @ToggleWalk.started += instance.OnToggleWalk;
+                @ToggleWalk.performed += instance.OnToggleWalk;
+                @ToggleWalk.canceled += instance.OnToggleWalk;
             }
         }
     }
@@ -413,5 +442,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnYSquish(InputAction.CallbackContext context);
         void OnZSquish(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnToggleWalk(InputAction.CallbackContext context);
     }
 }
