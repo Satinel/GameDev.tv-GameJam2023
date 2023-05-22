@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 299243260439987182}
   - component: {fileID: 2577140223496714020}
   - component: {fileID: 1870393559768808043}
+  - component: {fileID: 7630856887308979249}
   - component: {fileID: 6695605547980075483}
   - component: {fileID: 1268686362717161858}
   m_Layer: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4090160239457588977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: -0}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,8 +99,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00795497, y: 0.007811967, z: 0.012939279}
-  m_Center: {x: -0.000071512164, y: 3.566525e-18, z: -0.0035212445}
+  m_Size: {x: 0.0055229533, y: 0.0054854522, z: 0.012939279}
+  m_Center: {x: 0.000016405582, y: 0.0000000013411044, z: -0.0035212445}
+--- !u!65 &7630856887308979249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090160239457588977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007882848, y: 0.001696062, z: 0.0019318926}
+  m_Center: {x: -0.006058542, y: 0.00000598222, z: -0.0012529537}
 --- !u!135 &6695605547980075483
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -111,7 +125,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0075
+  m_Radius: 0.0125
   m_Center: {x: -0.003, y: 0, z: -0.0025}
 --- !u!114 &1268686362717161858
 MonoBehaviour:
@@ -128,3 +142,5 @@ MonoBehaviour:
   _doors: []
   _activateMaterial: {fileID: 2100000, guid: 59a37ecd7f02425408626acf35e1b90e, type: 2}
   _moveSpeed: 10
+  _anglesPerSecond: 180
+  _rotationDuration: 1
