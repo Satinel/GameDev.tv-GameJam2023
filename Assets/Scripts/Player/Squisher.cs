@@ -12,7 +12,7 @@ public class Squisher : MonoBehaviour
     [SerializeField] float _radiusSideSquishAmount = 0.05f;
     [SerializeField] float _radiusVertSquishAmount = 0.07f;
     [SerializeField] CharacterController _charaCont;
-    [SerializeField] CinemachineCollider _cineCollider;
+    // [SerializeField] CinemachineCollider _cineCollider;
     float _heightDefault;
     Vector3 _centerDefault;
     float _zCenterOffset = 0f;
@@ -100,7 +100,7 @@ public class Squisher : MonoBehaviour
         transform.localScale = new Vector3(_squishAmount, 1f, 1f);
         _charaCont.radius *= _radiusSideSquishAmount;
         _charaCont.center = new Vector3(_centerDefault.x, _centerDefault.y, _zCenterOffset);
-        _cineCollider.enabled = false;
+        // _cineCollider.enabled = false;
     }
 
     void VerticalSquish()
@@ -136,7 +136,7 @@ public class Squisher : MonoBehaviour
         _charaCont.height *= _squishAmount;
         _charaCont.center = new Vector3(_centerDefault.x, _yCenteredSquishAmount, _centerDefault.z);
         _charaCont.radius = _radiusVertSquishAmount;
-        _cineCollider.enabled = false;
+        // _cineCollider.enabled = false;
     }
 
     void FrontSquish()
@@ -152,7 +152,7 @@ public class Squisher : MonoBehaviour
         {
             _isSquished = true;
             transform.localScale = new Vector3(1f, 1f, _squishAmount);
-            _cineCollider.enabled = false;
+            // _cineCollider.enabled = false;
         }
     }
 
@@ -168,6 +168,6 @@ public class Squisher : MonoBehaviour
         _charaCont.radius = _radiusDefault;
         _charaCont.stepOffset = _stepOffsetDefault;
         _isSquished = false;
-        _cineCollider.enabled = true;
+        // _cineCollider.enabled = true;
     }
 }
