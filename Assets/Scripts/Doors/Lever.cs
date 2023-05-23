@@ -14,11 +14,15 @@ public class Lever : MonoBehaviour
     MeshRenderer _renderer;
     bool _hasActivated = false;
     PlayerControls _controls;
+    Animator _playerAnimator;
+    Interactable _interactable;
+    readonly int INTERACT_HASH = Animator.StringToHash("Interact");
 
     void Awake()
     {
         _renderer = GetComponent<MeshRenderer>();
         _controls = new PlayerControls();
+        _interactable = GetComponent<Interactable>();
     }
 
     void OnDisable()
@@ -32,6 +36,7 @@ public class Lever : MonoBehaviour
 
         if(other.CompareTag("Player"))
         {
+            _playerAnimator = other.GetComponentInChildren<Animator>();
             _controls.Player.Enable();
             _controls.Player.Interact.performed += _ => OpenDoors();
         }
@@ -56,11 +61,17 @@ public class Lever : MonoBehaviour
             _cutscene.EnableCamera();
         }
 
+        if(_playerAnimator != null)
+        {
+            _playerAnimator.SetTrigger(INTERACT_HASH);
+        }
+
         StartCoroutine(Rotate());
         _hasActivated = true;
         _controls.Player.Disable();
         _renderer.material = _activateMaterial;
         //TODO Play a sound!
+        _interactable._IsActive = false;
         foreach (Transform door in _doors)
         {
             StartCoroutine(RaiseDoor(door));

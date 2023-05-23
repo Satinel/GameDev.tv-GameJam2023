@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7630856887308979249}
   - component: {fileID: 6695605547980075483}
   - component: {fileID: 1268686362717161858}
+  - component: {fileID: 2314609814168014129}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -144,3 +145,16 @@ MonoBehaviour:
   _moveSpeed: 10
   _anglesPerSecond: 180
   _rotationDuration: 1
+  _cutscene: {fileID: 0}
+--- !u!114 &2314609814168014129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090160239457588977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359dd7978cb51aa4ca29b4ba4c89af66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

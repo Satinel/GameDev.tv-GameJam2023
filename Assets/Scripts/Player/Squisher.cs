@@ -12,9 +12,12 @@ public class Squisher : MonoBehaviour
     [SerializeField] float _radiusSideSquishAmount = 0.05f;
     [SerializeField] float _radiusVertSquishAmount = 0.07f;
     [SerializeField] CharacterController _charaCont;
+    [SerializeField] Mover _mover;
     // [SerializeField] CinemachineCollider _cineCollider;
     float _heightDefault;
     Vector3 _centerDefault;
+    Vector3 _previousPosition;
+    Quaternion _previousRotation;
     float _zCenterOffset = 0f;
     float _radiusDefault;
     float _stepOffsetDefault;
@@ -23,6 +26,7 @@ public class Squisher : MonoBehaviour
     bool _isSquished = false;
     bool _isSquishing = false;
     bool _inTightSpace = false;
+    bool _isHiding = false;
     float _routineDelta = 0f;
     PlayerControls _controls;
     const string _tightSpace = "TightSpace";
@@ -71,7 +75,7 @@ public class Squisher : MonoBehaviour
 
     void SideSquish()
     {
-        if(_isSquishing) { return; }
+        if(_isSquishing || _isHiding) { return; }
 
         if(_isSquished)
         {
@@ -105,7 +109,7 @@ public class Squisher : MonoBehaviour
 
     void VerticalSquish()
     {
-        if(_isSquishing) { return; }
+        if(_isSquishing || _isHiding) { return; }
 
         if(_isSquished)
         {
@@ -141,7 +145,7 @@ public class Squisher : MonoBehaviour
 
     void FrontSquish()
     {
-        if(_isSquishing) { return; }
+        if(_isSquishing || _isHiding) { return; }
 
         if(_isSquished)
         {
@@ -156,9 +160,9 @@ public class Squisher : MonoBehaviour
         }
     }
 
-    private void Unsquish()
+    void Unsquish()
     {
-        if(_inTightSpace) { return; }
+        if(_inTightSpace || _isHiding) { return; }
 
         //TODO play a POP! sort of sound
 
@@ -169,5 +173,39 @@ public class Squisher : MonoBehaviour
         _charaCont.stepOffset = _stepOffsetDefault;
         _isSquished = false;
         // _cineCollider.enabled = true;
+    }
+
+    public void HideInPainting(Transform painting)
+    {
+        if(_isHiding)
+        {
+            transform.position = _previousPosition;
+            transform.rotation = _previousRotation;
+            _mover.SetIsHiding(false);
+            _isHiding = false;
+            Unsquish();
+            return;
+        }
+
+        StopAllCoroutines();
+        _isSquishing = false;
+
+        if(_isSquished)
+        {
+            transform.localScale = Vector3.one;
+            _charaCont.height = _heightDefault;
+            _charaCont.center = _centerDefault;
+            _charaCont.radius = _radiusDefault;
+            _charaCont.stepOffset = _stepOffsetDefault;
+            _isSquished = false;
+        }
+
+        _mover.SetIsHiding(true);
+        _previousPosition = transform.position;
+        _previousRotation = transform.rotation;
+        FrontSquish();
+        transform.position = painting.position;
+        transform.rotation = painting.rotation;
+        _isHiding = true;
     }
 }

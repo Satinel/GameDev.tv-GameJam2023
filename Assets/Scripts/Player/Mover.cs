@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class Mover : MonoBehaviour
     [SerializeField] float _moveSpeed;
     [SerializeField] float _blendTime = 0.1f;
     [SerializeField] float _rotationSpeed = 15f;
+    [SerializeField] Canvas _interactCanvas;
 
     Transform _mainCamera;
     float _verticalVelocity;
@@ -14,12 +16,13 @@ public class Mover : MonoBehaviour
     float _walkSpeed;
     Vector2 _movementValue;
     bool _isWalking = false;
+    bool _isHiding = false;
     PlayerControls _controls;
     CharacterController _characterController;
     Animator _animator;
 
     readonly int BLEND_HASH = Animator.StringToHash("MoveBlend");
-
+    readonly int HIDE_HASH = Animator.StringToHash("Hide");
 
     void Awake()
     {
@@ -44,6 +47,7 @@ public class Mover : MonoBehaviour
     {
         _mainCamera = Camera.main.transform;
         _controls.Player.ToggleWalk.started += _ => ToggleWalk();
+        _controls.Player.Interact.performed += _ => HideInteractable();
     }
 
     void Update()
@@ -66,6 +70,11 @@ public class Mover : MonoBehaviour
 
     void PlayerInput()
     {
+        if(_isHiding)
+        {
+            return;
+        }
+
         _movementValue = _controls.Player.Move.ReadValue<Vector2>();
         Vector3 movement = CalculateMovement();
 
@@ -77,7 +86,6 @@ public class Mover : MonoBehaviour
         {
             _characterController.Move(((movement * _runSpeed) + new Vector3(0, _verticalVelocity, 0)) * Time.deltaTime);
         }
-        // transform.position = new Vector3(transform.position.x, 0, transform.position.z); // TODO check if this prevents going up slopes/stairs
 
         if (_movementValue == Vector2.zero)
         {
@@ -122,5 +130,22 @@ public class Mover : MonoBehaviour
         {
             _moveSpeed = _walkSpeed;
         }
+    }
+
+    public void SetIsHiding(bool value)
+    {
+        _isHiding = value;
+        _animator.SetBool(HIDE_HASH, value);
+    }
+
+    public void ShowInteractable()
+    {
+        //TODO play notification sound if you have one
+        _interactCanvas.enabled = true;
+    }
+
+    public void HideInteractable()
+    {
+        _interactCanvas.enabled = false;
     }
 }

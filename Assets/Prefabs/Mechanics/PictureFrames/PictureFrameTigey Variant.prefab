@@ -15,17 +15,22 @@ PrefabInstance:
     - target: {fileID: 382133191162581296, guid: 000bb27055107cd4ea67d66c7e42a2f1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.78175
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 382133191162581296, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 382133191162581296, guid: 000bb27055107cd4ea67d66c7e42a2f1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.5443
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 382133191162581296, guid: 000bb27055107cd4ea67d66c7e42a2f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.97
+      value: 1.83
       objectReference: {fileID: 0}
     - target: {fileID: 382133191162581296, guid: 000bb27055107cd4ea67d66c7e42a2f1,
         type: 3}
@@ -73,6 +78,86 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6ffc6efc5093a1f499ad7dab5919c1dc,
         type: 3}
+    - target: {fileID: 725807308239565076, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776354316525527235, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.0107177915
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776354316525527235, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00024229875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776354316525527235, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99968714
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776354316525527235, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.02260008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351270049537479557, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.010701904
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351270049537479557, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0006314614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351270049537479557, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99820644
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351270049537479557, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.05889876
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571431716997052509, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.010711585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571431716997052509, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0004366934
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571431716997052509, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9991126
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571431716997052509, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.04073215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236881232598072125, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_YAxis.Value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236881232598072125, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_XAxis.m_InvertInput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236881232598072125, guid: 000bb27055107cd4ea67d66c7e42a2f1,
+        type: 3}
+      propertyPath: m_YAxis.m_InvertInput
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8327148851358672220, guid: 000bb27055107cd4ea67d66c7e42a2f1,
         type: 3}
       propertyPath: m_LocalScale.x
