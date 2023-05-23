@@ -21,7 +21,7 @@ public class Squisher : MonoBehaviour
     float _zCenterOffset = 0f;
     float _radiusDefault;
     float _stepOffsetDefault;
-    float _squishedStepOffset;
+    float _squishedStepOffset = 0.03f;
     float _yCenteredSquishAmount = 0.1f;
     bool _isSquished = false;
     bool _isSquishing = false;
