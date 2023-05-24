@@ -12,10 +12,10 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
     [SerializeField] LayerMask _obstructionMask;
 
     EnemyAI enemyAI;
-    [SerializeField] Transform _player;
+    Transform _player;
     Hider _hider;
-    [SerializeField] bool _canSeePlayer;
-    [SerializeField] Vector3 _lastSeenPosition;
+    bool _canSeePlayer;
+    Vector3 _lastSeenPosition;
 
     void Awake()
     {

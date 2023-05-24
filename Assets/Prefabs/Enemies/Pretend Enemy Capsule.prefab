@@ -241,9 +241,6 @@ MonoBehaviour:
   _obstructionMask:
     serializedVersion: 2
     m_Bits: 64
-  _player: {fileID: 0}
-  _canSeePlayer: 0
-  _lastSeenPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1356994518562746094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +257,5 @@ MonoBehaviour:
   _attackDelay: 2
   _chaseDuration: 5
   _searchDuration: 5
-  _patrols: 0
-  _currentState: 0
-  _lastSeenPosition: {x: 0, y: 0, z: 0}
-  _attackTarget: {fileID: 0}
+  _patrolRoute: {fileID: 0}
+  _waypointRange: 1.1

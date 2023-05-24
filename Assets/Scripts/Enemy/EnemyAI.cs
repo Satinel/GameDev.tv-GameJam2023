@@ -10,19 +10,22 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float _attackDelay = 2f;
     [SerializeField] float _chaseDuration = 15f;
     [SerializeField] float _searchDuration = 5f;
-    [SerializeField] bool _patrols;
+    [SerializeField] PatrolRoute _patrolRoute;
+    [Min(1.1f)] [SerializeField] float _waypointRange;
+    
     // [SerializeField] Animator _textAnimator; //TODO set this up
 
     // readonly int AGGRO_HASH = Animator.StringToHash("Aggro");
     // readonly int CONFUSED_HASH = Animator.StringToHash("Confused");
-
+    
+    int _currentWaypoint = 0;
     NavMeshAgent _navAgent;
     Animator _animator;
-    [SerializeField] State _currentState;
+    State _currentState;
     Vector3 _startPosition;
     Quaternion _startRotation;
-    [SerializeField] Vector3 _lastSeenPosition;
-    [SerializeField] Transform _attackTarget = null;
+    Vector3 _lastSeenPosition;
+    Transform _attackTarget = null;
     float _chaseCooldown = 0f;
     float _aggroCooldown = 0f;
     bool _canAttack = true;
@@ -78,15 +81,28 @@ public class EnemyAI : MonoBehaviour
         }
         else if(transform.rotation != _startRotation)
         {
-            _navAgent.enabled = false;
+            // _navAgent.enabled = false;
             transform.rotation = _startRotation;
-            _navAgent.enabled = true;
+            // _navAgent.enabled = true;
         }
     }
 
     void Patrolling()
     {
-        throw new NotImplementedException();
+        _navAgent.destination = _patrolRoute.WayPoints[_currentWaypoint].position;
+        Debug.Log(Vector3.Distance(transform.position, _navAgent.destination));
+
+        if(Vector3.Distance(transform.position, _navAgent.destination) < _waypointRange)
+        {
+            if(_currentWaypoint + 1 < _patrolRoute.WayPoints.Length)
+            {
+                _currentWaypoint++;
+            }
+            else
+            {
+                _currentWaypoint = 0;
+            }
+        }
     }
 
     void Attacking()
@@ -148,7 +164,7 @@ public class EnemyAI : MonoBehaviour
 
     void ResumeDefaultState()
     {
-        if (_patrols)
+        if (_patrolRoute.WayPoints.Length > 1)
         {
             _currentState = State.Patrolling;
         }

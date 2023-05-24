@@ -14,7 +14,6 @@ public class Hider : MonoBehaviour
         {
             IsHidden = true;
         }
-        Debug.Log(IsHidden);
     }
 
     public void LeaveStealth()
@@ -25,6 +24,5 @@ public class Hider : MonoBehaviour
     public void AdjustAlertedEnemiesCount(int count)
     {
         _alertedEnemies += count;
-        Debug.Log(_alertedEnemies);
     }
 }
