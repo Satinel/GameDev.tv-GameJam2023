@@ -1477,6 +1477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2528153531114676877}
+  - component: {fileID: 3075704197086302407}
   m_Layer: 0
   m_Name: CamFocus
   m_TagString: Untagged
@@ -1499,6 +1500,20 @@ Transform:
   m_Father: {fileID: 2666688170681517873}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3075704197086302407
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878716905436632643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.117
+  m_Height: 1.05
+  m_Direction: 1
+  m_Center: {x: 0.012, y: -0.23, z: 0.132}
 --- !u!1 &3931216298333225133
 GameObject:
   m_ObjectHideFlags: 0
