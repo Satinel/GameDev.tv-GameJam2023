@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 49838925289296261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4x4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 3244926710372870875}
   - component: {fileID: 787211771711806993}
   - component: {fileID: 3725281558956440023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3244926710831582886}
   - component: {fileID: 787211771098954348}
   - component: {fileID: 3725281558476742058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 3244926710792936188}
   - component: {fileID: 787211770722627126}
   - component: {fileID: 3725281558570437104}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 2922485347559447034}
   - component: {fileID: 1110761527427755312}
   - component: {fileID: 3905835292733098742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 2613862654319334018}
   - component: {fileID: 261975643997988424}
   - component: {fileID: 4250516572877603214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 2773007436834792288}
   - component: {fileID: 116887825040611242}
   - component: {fileID: 4089589398186176620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4311375069939432508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 2432160858343788932}
   - component: {fileID: 442533793390142798}
   - component: {fileID: 4574061948721300104}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 2432160857862866398}
   - component: {fileID: 442533793246900500}
   - component: {fileID: 4574061949181777618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 2432160858462101923}
   - component: {fileID: 442533792770348393}
   - component: {fileID: 4574061948569973423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 2593291376440800316}
   - component: {fileID: 295495458049392886}
   - component: {fileID: 4415683458891556656}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 2593291376047169638}
   - component: {fileID: 295495457993446572}
   - component: {fileID: 4415683459171414890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1160,7 @@ GameObject:
   - component: {fileID: 2593291377037987905}
   - component: {fileID: 295495457574888587}
   - component: {fileID: 4415683458281767757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1255,7 +1255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4491108757239851872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4491108757414821690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1325,7 +1325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4491108756760153885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1363,7 +1363,7 @@ GameObject:
   - component: {fileID: 2222185255024564799}
   - component: {fileID: 4121425873210011381}
   - component: {fileID: 30498006616983859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 1968146571744008505}
   - component: {fileID: 4374320875280051699}
   - component: {fileID: 426384633453513269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1559,7 +1559,7 @@ GameObject:
   - component: {fileID: 1968146571380002147}
   - component: {fileID: 4374320875253725609}
   - component: {fileID: 426384633762471535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1657,7 +1657,7 @@ GameObject:
   - component: {fileID: 1968146571861862686}
   - component: {fileID: 4374320874659667412}
   - component: {fileID: 426384633301596690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1755,7 +1755,7 @@ GameObject:
   - component: {fileID: 1559707288072606596}
   - component: {fileID: 3621394146825545550}
   - component: {fileID: 801537321449881736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1853,7 +1853,7 @@ GameObject:
   - component: {fileID: 1559707288693449635}
   - component: {fileID: 3621394146708281193}
   - component: {fileID: 801537320727867567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1951,7 +1951,7 @@ GameObject:
   - component: {fileID: 1559707288684427257}
   - component: {fileID: 3621394146361574195}
   - component: {fileID: 801537320850662645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2049,7 +2049,7 @@ GameObject:
   - component: {fileID: 1162978556343804069}
   - component: {fileID: 4019266525907391599}
   - component: {fileID: 1051918873581728681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2144,7 +2144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3406251421873170042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2179,7 +2179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3406251422642395261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ceiling8x8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2214,7 +2214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272231970866011295}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2249,7 +2249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272231971160541381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2284,7 +2284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272231970270984418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2322,7 +2322,7 @@ GameObject:
   - component: {fileID: 1023648383803369083}
   - component: {fileID: 3012993371343966897}
   - component: {fileID: 1192937928303211895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2420,7 +2420,7 @@ GameObject:
   - component: {fileID: 1023648383681098273}
   - component: {fileID: 3012993371018233579}
   - component: {fileID: 1192937928312758573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2518,7 +2518,7 @@ GameObject:
   - component: {fileID: 1023648384156587612}
   - component: {fileID: 3012993370422157974}
   - component: {fileID: 1192937927849837904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2616,7 +2616,7 @@ GameObject:
   - component: {fileID: 1013785435644094935}
   - component: {fileID: 3023401006669438237}
   - component: {fileID: 1201088953988233947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2711,7 +2711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1450558660626779075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2749,7 +2749,7 @@ GameObject:
   - component: {fileID: 842790635884602749}
   - component: {fileID: 3194959616110596535}
   - component: {fileID: 1515639324827694705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2847,7 +2847,7 @@ GameObject:
   - component: {fileID: 835201323000716022}
   - component: {fileID: 3203128491863453244}
   - component: {fileID: 1526064260935715322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2945,7 +2945,7 @@ GameObject:
   - component: {fileID: 835201323478318731}
   - component: {fileID: 3203128491265264193}
   - component: {fileID: 1526064260470713735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3043,7 +3043,7 @@ GameObject:
   - component: {fileID: 835201323152059089}
   - component: {fileID: 3203128491142471195}
   - component: {fileID: 1526064260817418717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3141,7 +3141,7 @@ GameObject:
   - component: {fileID: 387952023443670033}
   - component: {fileID: 2487885879768641755}
   - component: {fileID: 2006591398808901405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3239,7 +3239,7 @@ GameObject:
   - component: {fileID: 387952023338176587}
   - component: {fileID: 2487885879459685505}
   - component: {fileID: 2006591398835225415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3337,7 +3337,7 @@ GameObject:
   - component: {fileID: 387952024059748460}
   - component: {fileID: 2487885879308801190}
   - component: {fileID: 2006591398213808992}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3435,7 +3435,7 @@ GameObject:
   - component: {fileID: 64390808586589005}
   - component: {fileID: 2810303687871326087}
   - component: {fileID: 2188278178655518785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3533,7 +3533,7 @@ GameObject:
   - component: {fileID: 9121886347245790854}
   - component: {fileID: 6445640646475829836}
   - component: {fileID: 6930445249186166154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3631,7 +3631,7 @@ GameObject:
   - component: {fileID: 9121886347859755771}
   - component: {fileID: 6445640646018102833}
   - component: {fileID: 6930445248593154551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3729,7 +3729,7 @@ GameObject:
   - component: {fileID: 9121886347665921697}
   - component: {fileID: 6445640645486584427}
   - component: {fileID: 6930445248800097709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3827,7 +3827,7 @@ GameObject:
   - component: {fileID: 8868141938506798503}
   - component: {fileID: 6698276867329352045}
   - component: {fileID: 7326064024169989803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3925,7 +3925,7 @@ GameObject:
   - component: {fileID: 7948864891857839433}
   - component: {fileID: 5311148900253585795}
   - component: {fileID: 8136486035247363653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4023,7 +4023,7 @@ GameObject:
   - component: {fileID: 7948864891634643219}
   - component: {fileID: 5311148899826927065}
   - component: {fileID: 8136486035424944671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4121,7 +4121,7 @@ GameObject:
   - component: {fileID: 7948864892244350318}
   - component: {fileID: 5311148899365069220}
   - component: {fileID: 8136486034827806306}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4219,7 +4219,7 @@ GameObject:
   - component: {fileID: 7770540968342677071}
   - component: {fileID: 5490581320331399813}
   - component: {fileID: 8461157206978835779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4317,7 +4317,7 @@ GameObject:
   - component: {fileID: 7438545428978967195}
   - component: {fileID: 4674721990609032785}
   - component: {fileID: 8755443912778150295}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4415,7 +4415,7 @@ GameObject:
   - component: {fileID: 7438545428851979969}
   - component: {fileID: 4674721990278578699}
   - component: {fileID: 8755443912782980557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4513,7 +4513,7 @@ GameObject:
   - component: {fileID: 7438545429331661500}
   - component: {fileID: 4674721989686699638}
   - component: {fileID: 8755443912324252080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4611,7 +4611,7 @@ GameObject:
   - component: {fileID: 7115000208819773853}
   - component: {fileID: 4997159092148016471}
   - component: {fileID: 8937145587410842257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4706,7 +4706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7311067954915024413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4x4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4744,7 +4744,7 @@ GameObject:
   - component: {fileID: 6117444899701875288}
   - component: {fileID: 8287028967208228498}
   - component: {fileID: 5359028230426440020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4839,7 +4839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7747126989113189511}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4x4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4877,7 +4877,7 @@ GameObject:
   - component: {fileID: 5864545363031118201}
   - component: {fileID: 8541071910705997235}
   - component: {fileID: 5753802201910248053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4975,7 +4975,7 @@ GameObject:
   - component: {fileID: 5864545363492009220}
   - component: {fileID: 8541071910090965454}
   - component: {fileID: 5753802201428403720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5073,7 +5073,7 @@ GameObject:
   - component: {fileID: 5864545363216343390}
   - component: {fileID: 8541071910018766228}
   - component: {fileID: 5753802201826226770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5171,7 +5171,7 @@ GameObject:
   - component: {fileID: 5569247792636368482}
   - component: {fileID: 7686806829747724968}
   - component: {fileID: 6049285572640556398}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5266,7 +5266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5829722829830162750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5304,7 +5304,7 @@ GameObject:
   - component: {fileID: 5725215261433849728}
   - component: {fileID: 7534798959491421002}
   - component: {fileID: 5894821052427678860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5402,7 +5402,7 @@ GameObject:
   - component: {fileID: 5246546274787120484}
   - component: {fileID: 8010651685209055662}
   - component: {fileID: 6230143476261914216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5500,7 +5500,7 @@ GameObject:
   - component: {fileID: 5246546274309865790}
   - component: {fileID: 8010651685069485556}
   - component: {fileID: 6230143476726059570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5598,7 +5598,7 @@ GameObject:
   - component: {fileID: 5246546274904909123}
   - component: {fileID: 8010651684588736905}
   - component: {fileID: 6230143476110063183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5693,7 +5693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6152441905648945720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5728,7 +5728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6152441905672658530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5763,7 +5763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6152441905195006495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5801,7 +5801,7 @@ GameObject:
   - component: {fileID: 5400528043153518812}
   - component: {fileID: 7860594365811622934}
   - component: {fileID: 6073130304991241168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5899,7 +5899,7 @@ GameObject:
   - component: {fileID: 5400528042756220038}
   - component: {fileID: 7860594365752004684}
   - component: {fileID: 6073130305267431306}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5997,7 +5997,7 @@ GameObject:
   - component: {fileID: 5400528043746514081}
   - component: {fileID: 7860594365332922475}
   - component: {fileID: 6073130304377259949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6095,7 +6095,7 @@ GameObject:
   - component: {fileID: 4909766323310891440}
   - component: {fileID: 7189444012020852090}
   - component: {fileID: 6528088625530651324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6193,7 +6193,7 @@ GameObject:
   - component: {fileID: 4902155853166456379}
   - component: {fileID: 7197600544322902769}
   - component: {fileID: 6538492971850693943}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6291,7 +6291,7 @@ GameObject:
   - component: {fileID: 4902155853629360710}
   - component: {fileID: 7197600543714246284}
   - component: {fileID: 6538492971375188298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6389,7 +6389,7 @@ GameObject:
   - component: {fileID: 4902155853585997340}
   - component: {fileID: 7197600543333198550}
   - component: {fileID: 6538492971464166672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6484,7 +6484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6599090884833001605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6519,7 +6519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6599090883876073634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6554,7 +6554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6599090884217005304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6592,7 +6592,7 @@ GameObject:
   - component: {fileID: 4730034302290678454}
   - component: {fileID: 7368032386206017148}
   - component: {fileID: 6854167826063163834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6690,7 +6690,7 @@ GameObject:
   - component: {fileID: 4730034301910157036}
   - component: {fileID: 7368032386163175974}
   - component: {fileID: 6854167826356131296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6788,7 +6788,7 @@ GameObject:
   - component: {fileID: 4730034302375174801}
   - component: {fileID: 7368032385552406107}
   - component: {fileID: 6854167825878544797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6886,7 +6886,7 @@ GameObject:
   - component: {fileID: 4720194143244360986}
   - component: {fileID: 7378454031731354064}
   - component: {fileID: 6862342207797415446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6981,7 +6981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6778521501137007524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Palace4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

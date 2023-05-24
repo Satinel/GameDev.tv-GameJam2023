@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 240828894548837182}
   - component: {fileID: 1210425377159667996}
   - component: {fileID: 7625626201308760254}
-  m_Layer: 0
+  - component: {fileID: 2846590314790901383}
+  m_Layer: 6
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,3 +114,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009300596, y: 0.009926125, z: 0.04010072}
   m_Center: {x: 0.01587146, y: -0.00026917772, z: 0.020050142}
+--- !u!65 &2846590314790901383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753981539048514283}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04104361, y: 0.009926125, z: 0.008185134}
+  m_Center: {x: 0, y: -0.00026917757, z: 0.036008198}

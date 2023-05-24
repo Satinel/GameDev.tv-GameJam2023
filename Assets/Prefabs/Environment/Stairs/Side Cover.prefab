@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 53519677924458217}
   - component: {fileID: 3692579941903118521}
   - component: {fileID: 7786521533943970314}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs_SideCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}

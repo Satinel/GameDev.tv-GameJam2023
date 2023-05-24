@@ -11,8 +11,16 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
     [SerializeField] LayerMask _targetMask;
     [SerializeField] LayerMask _obstructionMask;
 
-    Transform _player;
-    bool _canSeePlayer;
+    EnemyAI enemyAI;
+    [SerializeField] Transform _player;
+    Hider _hider;
+    [SerializeField] bool _canSeePlayer;
+    [SerializeField] Vector3 _lastSeenPosition;
+
+    void Awake()
+    {
+        enemyAI = GetComponent<EnemyAI>();
+    }
 
     IEnumerator Start()
     {
@@ -30,6 +38,13 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
         if(rangeChecks.Length > 0)
         {
             _player = rangeChecks[0].transform;
+            if(_hider == null)
+            {
+                _hider = _player.GetComponent<Hider>();
+            }
+
+            if(_hider.IsHidden) { return; }
+
             Vector3 directionToTarget = (_player.position - transform.position).normalized;
 
             if(Vector3.Angle(transform.forward, directionToTarget) < _angle / 2)
@@ -38,26 +53,43 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
 
                 if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _obstructionMask))
                 {
+                    _lastSeenPosition = _player.position;
+                    if(!_canSeePlayer)
+                    {
+                        _hider.AdjustAlertedEnemiesCount(1);
+                    }
                     _canSeePlayer = true;
-                    //TODO Aggro the guard in another script and pass in _player
+                    enemyAI.Aggro(_player);
                 }
                 else
                 {
+                    if(_canSeePlayer)
+                    {
+                        _hider.AdjustAlertedEnemiesCount(-1);
+                        enemyAI.Chase(_lastSeenPosition);
+                    }
                     _canSeePlayer = false;
                 }
             }
             else
             {
+                if(_canSeePlayer)
+                {
+                    _hider.AdjustAlertedEnemiesCount(-1);
+                    enemyAI.Chase(_lastSeenPosition);
+                }
                 _canSeePlayer = false;
             }
         }
         else if(_canSeePlayer)
         {
             _canSeePlayer = false;
+            _player.GetComponent<Hider>().AdjustAlertedEnemiesCount(-1);
+            enemyAI.Chase(_lastSeenPosition);
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, _radius);
 

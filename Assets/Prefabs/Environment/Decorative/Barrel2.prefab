@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6824164646636445320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7102426784370454429}
   - component: {fileID: 5004647962514430807}
   - component: {fileID: 6428514736205771235}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

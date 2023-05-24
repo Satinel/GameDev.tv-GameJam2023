@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2174991703344947134}
   - component: {fileID: 4164677538148051828}
   - component: {fileID: 833929251781383971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArchDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

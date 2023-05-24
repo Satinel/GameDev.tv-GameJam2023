@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 341556416579451048}
   - component: {fileID: 2547212791335996514}
   - component: {fileID: 1225219419773972533}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArchDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4060409552246828471}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200, y: 100.00004, z: 200.00009}
+  m_LocalScale: {x: 200, y: 100.00004, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8912824361706866889}
@@ -109,6 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8912824361706866889}
+  - component: {fileID: 7349654156312143943}
   m_Layer: 0
   m_Name: DoorAligned
   m_TagString: Untagged
@@ -132,6 +133,22 @@ Transform:
   m_Father: {fileID: 4546748212892413643}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &7349654156312143943
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6585883421813084934}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.5, y: 3.25, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 3.25, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7136181521021528690
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,11 +353,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377173799533033553, guid: 4c496226d16b7464fbba2c4fa075b159,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 200.00002
       objectReference: {fileID: 0}
     - target: {fileID: 1377173799533033553, guid: 4c496226d16b7464fbba2c4fa075b159,
         type: 3}

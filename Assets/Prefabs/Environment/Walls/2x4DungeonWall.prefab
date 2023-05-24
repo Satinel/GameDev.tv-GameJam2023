@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2477338343563643660}
   m_Layer: 0
-  m_Name: DungeonWall2x4
+  m_Name: 2x4DungeonWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

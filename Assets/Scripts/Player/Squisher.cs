@@ -13,6 +13,7 @@ public class Squisher : MonoBehaviour
     [SerializeField] float _radiusVertSquishAmount = 0.07f;
     [SerializeField] CharacterController _charaCont;
     [SerializeField] Mover _mover;
+    [SerializeField] Hider _hider;
     // [SerializeField] CinemachineCollider _cineCollider;
     float _heightDefault;
     Vector3 _centerDefault;
@@ -182,6 +183,7 @@ public class Squisher : MonoBehaviour
             transform.position = _previousPosition;
             transform.rotation = _previousRotation;
             _mover.SetIsHiding(false);
+            _hider.LeaveStealth();
             _isHiding = false;
             Unsquish();
             return;
@@ -201,6 +203,7 @@ public class Squisher : MonoBehaviour
         }
 
         _mover.SetIsHiding(true);
+        _hider.AttemptStealth();
         _previousPosition = transform.position;
         _previousRotation = transform.rotation;
         FrontSquish();

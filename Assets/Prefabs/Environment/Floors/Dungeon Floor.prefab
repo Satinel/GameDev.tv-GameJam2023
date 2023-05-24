@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 108022168539968789}
   - component: {fileID: 2781873127882342879}
   - component: {fileID: 1730933480555355190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dungeon Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5858151935595206608}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5860736987705004997}
   - component: {fileID: 8552743013254080271}
   - component: {fileID: 5550349853078180168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs_SideCoverWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

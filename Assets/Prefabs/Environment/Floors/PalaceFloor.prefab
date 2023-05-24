@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3413910316117257481}
   - component: {fileID: 613705685102041539}
   - component: {fileID: 3592242107205500421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PalaceFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -175,11 +175,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch
       objectReference: {fileID: 0}
-    - target: {fileID: 1753981539048514283, guid: 4c496226d16b7464fbba2c4fa075b159,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c496226d16b7464fbba2c4fa075b159, type: 3}
 --- !u!4 &1917027850358779980 stripped
