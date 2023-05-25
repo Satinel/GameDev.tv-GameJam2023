@@ -211,4 +211,18 @@ public class Squisher : MonoBehaviour
         transform.rotation = painting.rotation;
         _isHiding = true;
     }
+
+    public void ForceUnsquish()
+    {
+        if(_isHiding)
+        {
+            transform.position = _previousPosition;
+            transform.rotation = _previousRotation;
+            _mover.SetIsHiding(false);
+            _hider.LeaveStealth();
+            _isHiding = false;
+        }
+
+        Unsquish();
+    }
 }

@@ -1098,6 +1098,7 @@ GameObject:
   - component: {fileID: 2666688170681517872}
   - component: {fileID: 5617351315020314244}
   - component: {fileID: 8284264229866798000}
+  - component: {fileID: 7249637272445932026}
   m_Layer: 0
   m_Name: Princess
   m_TagString: Untagged
@@ -1180,6 +1181,28 @@ MonoBehaviour:
   _charaCont: {fileID: 0}
   _mover: {fileID: 0}
   _hider: {fileID: 2103649488844453286}
+--- !u!114 &7249637272445932026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335525133178969483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffdc11ad29e9834cac0133f4371b9b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+  _iframeDuration: 12
+  _blinkDelay: 0.05
+  _renderers:
+  - {fileID: 5277621137736661315}
+  - {fileID: 2821139448087362289}
+  - {fileID: 6933561405387997864}
+  - {fileID: 5831053633479617629}
+  _crownRenderer: {fileID: 4730702786264846460}
+  _currentHealth: 0
 --- !u!1 &3371759089904354389
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,16 +12,20 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float _searchDuration = 5f;
     [SerializeField] PatrolRoute _patrolRoute;
     [Min(1.1f)] [SerializeField] float _waypointRange;
-    
-    // [SerializeField] Animator _textAnimator; //TODO set this up
+    [SerializeField] Animator _characterAnimator;
+    [SerializeField] Animator _textAnimator; //TODO set this up
 
+    readonly int BLEND_HASH = Animator.StringToHash("MoveBlend");
+    readonly int ATTACK_HASH = Animator.StringToHash("Attack");
+    readonly int DEATH_HASH = Animator.StringToHash("Death");
+    readonly int CONFUSED_HASH = Animator.StringToHash("Confused");
+    
     // readonly int AGGRO_HASH = Animator.StringToHash("Aggro");
     // readonly int CONFUSED_HASH = Animator.StringToHash("Confused");
-    
+
     int _currentWaypoint = 0;
     NavMeshAgent _navAgent;
-    Animator _animator;
-    State _currentState;
+    [SerializeField] State _currentState;
     Vector3 _startPosition;
     Quaternion _startRotation;
     Vector3 _lastSeenPosition;
@@ -29,11 +33,12 @@ public class EnemyAI : MonoBehaviour
     float _chaseCooldown = 0f;
     float _aggroCooldown = 0f;
     bool _canAttack = true;
+    bool _checkedLastPosition = false;
 
     void Awake()
     {
         _navAgent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();
+        _characterAnimator = GetComponentInChildren<Animator>();
         _startPosition = transform.position;
         _startRotation = transform.rotation;
     }
@@ -46,6 +51,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         StateActivity();
+        SetMoveAnimation();
     }
 
     void StateActivity()
@@ -90,7 +96,6 @@ public class EnemyAI : MonoBehaviour
     void Patrolling()
     {
         _navAgent.destination = _patrolRoute.WayPoints[_currentWaypoint].position;
-        Debug.Log(Vector3.Distance(transform.position, _navAgent.destination));
 
         if(Vector3.Distance(transform.position, _navAgent.destination) < _waypointRange)
         {
@@ -121,14 +126,14 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
+            _navAgent.destination = transform.position;
+            transform.LookAt(_attackTarget);
             _canAttack = false;
-            //TODO Play attack animation here
-            Debug.Log("I'm attacking the target!");
+            _characterAnimator.SetTrigger(ATTACK_HASH);
             StartCoroutine(AttackCooldownRoutine());
         }
 
     }
-
 
     void Chasing()
     {
@@ -139,12 +144,24 @@ public class EnemyAI : MonoBehaviour
         }
 
         _navAgent.destination = _lastSeenPosition;
+
+        if(transform.position == _lastSeenPosition && !_checkedLastPosition)
+        {
+            if(_attackTarget != null)
+            {
+                transform.LookAt(_attackTarget);
+                _checkedLastPosition = true;
+                return;
+            }
+        }
+        
         _chaseCooldown += Time.deltaTime;
 
         if(_currentState == State.Chasing && (_chaseCooldown > _chaseDuration))
         {
-            // textAnimator.SetTrigger(CONFUSED_HASH);
-            //TODO play searching SFX?
+            _navAgent.destination = transform.position;
+            _characterAnimator.SetTrigger(CONFUSED_HASH);
+            //TODO play angry/confused noises SFX?
             _currentState = State.Searching;
         }
 
@@ -152,7 +169,6 @@ public class EnemyAI : MonoBehaviour
 
     void Searching()
     {
-        _navAgent.destination = transform.position;
         _aggroCooldown += Time.deltaTime;
         //TODO play some sort of searching animation if possible and/or have the enemy look around somehow (rotating if nothing else)
         
@@ -160,6 +176,14 @@ public class EnemyAI : MonoBehaviour
         {
             ResumeDefaultState();
         }
+    }
+
+    void SetMoveAnimation()
+    {
+        Vector3 velocity = _navAgent.velocity;
+        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        float speed = localVelocity.z;
+        _characterAnimator.SetFloat(BLEND_HASH, speed);
     }
 
     void ResumeDefaultState()
