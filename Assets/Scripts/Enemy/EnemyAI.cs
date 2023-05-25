@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] float runSpeed;
+    [SerializeField] float walkSpeed;
     [SerializeField] float _attackRange = 1f;
     [SerializeField] float _attackDelay = 2f;
     [SerializeField] float _chaseDuration = 15f;
@@ -19,9 +21,7 @@ public class EnemyAI : MonoBehaviour
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
     readonly int DEATH_HASH = Animator.StringToHash("Death");
     readonly int CONFUSED_HASH = Animator.StringToHash("Confused");
-    
-    // readonly int AGGRO_HASH = Animator.StringToHash("Aggro");
-    // readonly int CONFUSED_HASH = Animator.StringToHash("Confused");
+    readonly int AGGRO_HASH = Animator.StringToHash("Aggro");
 
     int _currentWaypoint = 0;
     NavMeshAgent _navAgent;
@@ -87,9 +87,7 @@ public class EnemyAI : MonoBehaviour
         }
         else if(transform.rotation != _startRotation)
         {
-            // _navAgent.enabled = false;
             transform.rotation = _startRotation;
-            // _navAgent.enabled = true;
         }
     }
 
@@ -112,22 +110,19 @@ public class EnemyAI : MonoBehaviour
 
     void Attacking()
     {
-        if(!_canAttack) { return; }
-
         if(_attackTarget == null)
         {
             ResumeDefaultState();
             return;
         }
 
-        if (Vector3.Distance(transform.position, _attackTarget.position) > _attackRange)
+        if (Vector3.Distance(transform.position, _attackTarget.position) > _attackRange || !_canAttack)
         {
             _navAgent.destination = _attackTarget.position;
         }
         else
         {
             _navAgent.destination = transform.position;
-            transform.LookAt(_attackTarget);
             _canAttack = false;
             _characterAnimator.SetTrigger(ATTACK_HASH);
             StartCoroutine(AttackCooldownRoutine());
@@ -145,12 +140,11 @@ public class EnemyAI : MonoBehaviour
 
         _navAgent.destination = _lastSeenPosition;
 
-        if(transform.position == _lastSeenPosition && !_checkedLastPosition)
+        if(Vector3.Distance(transform.position, _lastSeenPosition) < _attackRange)
         {
-            if(_attackTarget != null)
+            if(_attackTarget != null && Vector3.Distance(transform.position, _attackTarget.position) < _attackRange)
             {
-                transform.LookAt(_attackTarget);
-                _checkedLastPosition = true;
+                Aggro(_attackTarget);
                 return;
             }
         }
@@ -170,7 +164,6 @@ public class EnemyAI : MonoBehaviour
     void Searching()
     {
         _aggroCooldown += Time.deltaTime;
-        //TODO play some sort of searching animation if possible and/or have the enemy look around somehow (rotating if nothing else)
         
         if(_aggroCooldown > _searchDuration)
         {
@@ -196,6 +189,8 @@ public class EnemyAI : MonoBehaviour
         {
             _currentState = State.Guarding;
         }
+        
+        _navAgent.speed = walkSpeed;
     }
 
     IEnumerator AttackCooldownRoutine()
@@ -208,12 +203,13 @@ public class EnemyAI : MonoBehaviour
     {
         if(_currentState != State.Attacking && _currentState != State.Chasing)
         {
-            //textAnimator.SetTrigger(AGGRO_HASH);
+            _textAnimator.SetTrigger(AGGRO_HASH);
             //TODO play aggro SFX
         }
         _aggroCooldown = 0f;
         _attackTarget = target;
         _lastSeenPosition = _attackTarget.position;
+        _navAgent.speed = runSpeed;
         _currentState = State.Attacking;
     }
 
@@ -221,12 +217,13 @@ public class EnemyAI : MonoBehaviour
     {
         if(_currentState != State.Chasing && _currentState != State.Attacking)
         {
-            //textAnimator.SetTrigger(AGGRO_HASH);
+            _textAnimator.SetTrigger(AGGRO_HASH);
             //TODO play aggro SFX
         }
         _aggroCooldown = 0f;
         _chaseCooldown = 0f;
         _lastSeenPosition = lastSeen;
+        _navAgent.speed = runSpeed;
         _currentState = State.Chasing;
     }
 }
