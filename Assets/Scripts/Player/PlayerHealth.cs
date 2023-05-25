@@ -6,21 +6,26 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public event Action OnPlayerHurt;
+    public event Action OnPlayerDefeat;
     [SerializeField] int _maxHealth = 3;
     [SerializeField] int _iframeDuration = 12;
     [SerializeField] float _blinkDelay = 0.05f;
     [SerializeField] SkinnedMeshRenderer[] _renderers;
     [SerializeField] MeshRenderer _crownRenderer;
     [SerializeField] Image[] _heartImages;
+    [SerializeField] Canvas _defeatCanvas;
     
-    Squisher _squisher;
+    Animator _animator;
     [SerializeField] int _currentHealth;
     bool _isInvincible = false;
     int _blinkTime = 0;
 
+    readonly int DEATH_HASH = Animator.StringToHash("Death");
+
     void Awake()
     {
-        _squisher = GetComponent<Squisher>();
+        _animator = GetComponent<Animator>();
         _currentHealth = _maxHealth;
     }
 
@@ -33,10 +38,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if(_isInvincible) { return; }
 
-        _squisher.ForceUnsquish();
-
         _currentHealth -= damage;
         UpdateHealthHUD();
+        OnPlayerHurt?.Invoke();
         
         if(_currentHealth <= 0)
         {
@@ -45,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             //TODO play Hurt SFX
-            //TODO update UI that hasn't been made yet
             _blinkTime = 0;
             StartCoroutine(IFrames());
         }
@@ -91,7 +94,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void HandleDeath()
     {
-        //TODO actually handle death
-        Debug.Log("I'm dead!");
+        _animator.SetTrigger(DEATH_HASH);
+        OnPlayerDefeat?.Invoke();
+        _defeatCanvas.enabled = true;
+        Time.timeScale = 0.1f;
     }
 }

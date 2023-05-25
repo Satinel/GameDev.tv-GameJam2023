@@ -129,7 +129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4325645136026410037}
   m_LocalRotation: {x: 2.895468e-10, y: 0.99985844, z: -0.016827874, w: 0.000000017203945}
-  m_LocalPosition: {x: 0, y: 5, z: 15}
+  m_LocalPosition: {x: 0, y: 5, z: 12}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -421,7 +421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hidingPosition: {fileID: 1359290915690061720}
-  _changesCameras: 0
   _portraitCamera: {fileID: 4325645136026410037}
 --- !u!114 &5725772062143707248
 MonoBehaviour:
@@ -435,3 +434,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359dd7978cb51aa4ca29b4ba4c89af66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsActive: 1

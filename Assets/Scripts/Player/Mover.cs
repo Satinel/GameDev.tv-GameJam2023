@@ -17,8 +17,10 @@ public class Mover : MonoBehaviour
     Vector2 _movementValue;
     bool _isWalking = false;
     bool _isHiding = false;
+    bool _isDefeated = false;
     PlayerControls _controls;
     CharacterController _characterController;
+    PlayerHealth _playerHealth;
     Animator _animator;
 
     readonly int BLEND_HASH = Animator.StringToHash("MoveBlend");
@@ -28,6 +30,7 @@ public class Mover : MonoBehaviour
     {
         _controls = new PlayerControls();
         _characterController = GetComponent<CharacterController>();
+        _playerHealth = GetComponentInChildren<PlayerHealth>();
         _animator = GetComponentInChildren<Animator>();
         _runSpeed = _moveSpeed;
         _walkSpeed = _moveSpeed/2;
@@ -36,11 +39,13 @@ public class Mover : MonoBehaviour
     void OnEnable()
     {
         _controls.Player.Enable();
+        _playerHealth.OnPlayerDefeat += DisableControl;
     }
 
     void OnDisable()
     {
         _controls.Player.Disable();
+        _playerHealth.OnPlayerDefeat -= DisableControl;
     }
 
     void Start()
@@ -70,7 +75,7 @@ public class Mover : MonoBehaviour
 
     void PlayerInput()
     {
-        if(_isHiding)
+        if(_isHiding || _isDefeated)
         {
             return;
         }
@@ -103,6 +108,11 @@ public class Mover : MonoBehaviour
         {
             _animator.SetFloat(BLEND_HASH, _movementValue.magnitude, _blendTime, Time.deltaTime);
         }
+    }
+
+    void DisableControl()
+    {
+        _isDefeated = true;
     }
 
     Vector3 CalculateMovement()

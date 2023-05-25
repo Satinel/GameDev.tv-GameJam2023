@@ -28,23 +28,30 @@ public class Squisher : MonoBehaviour
     bool _isSquishing = false;
     bool _inTightSpace = false;
     bool _isHiding = false;
+    bool _canSquish = true;
     float _routineDelta = 0f;
     PlayerControls _controls;
+    PlayerHealth _playerHealth;
     const string _tightSpace = "TightSpace";
 
     void Awake()
     {
         _controls = new PlayerControls();
+        _playerHealth = GetComponent<PlayerHealth>();
     }
     
     void OnEnable()
     {
         _controls.Player.Enable();
+        _playerHealth.OnPlayerHurt += ForceUnsquish;
+        _playerHealth.OnPlayerDefeat += DisableSquishing;
     }
 
     void OnDisable()
     {
         _controls.Player.Disable();
+        _playerHealth.OnPlayerHurt -= ForceUnsquish;
+        _playerHealth.OnPlayerDefeat -= DisableSquishing;
     }
 
     void Start()
@@ -76,7 +83,7 @@ public class Squisher : MonoBehaviour
 
     void SideSquish()
     {
-        if(_isSquishing || _isHiding) { return; }
+        if(_isSquishing || _isHiding || !_canSquish) { return; }
 
         if(_isSquished)
         {
@@ -110,7 +117,7 @@ public class Squisher : MonoBehaviour
 
     void VerticalSquish()
     {
-        if(_isSquishing || _isHiding) { return; }
+        if(_isSquishing || _isHiding || !_canSquish) { return; }
 
         if(_isSquished)
         {
@@ -146,7 +153,7 @@ public class Squisher : MonoBehaviour
 
     void FrontSquish()
     {
-        if(_isSquishing || _isHiding) { return; }
+        if(_isSquishing || _isHiding || !_canSquish) { return; }
 
         if(_isSquished)
         {
@@ -178,6 +185,8 @@ public class Squisher : MonoBehaviour
 
     public void HideInPainting(Transform painting)
     {
+        if(!_canSquish) { return; }
+
         if(_isHiding)
         {
             transform.position = _previousPosition;
@@ -212,8 +221,10 @@ public class Squisher : MonoBehaviour
         _isHiding = true;
     }
 
-    public void ForceUnsquish()
+    void ForceUnsquish()
     {
+        StopAllCoroutines();
+
         if(_isHiding)
         {
             transform.position = _previousPosition;
@@ -224,5 +235,10 @@ public class Squisher : MonoBehaviour
         }
 
         Unsquish();
+    }
+
+    void DisableSquishing()
+    {
+        _canSquish = false;
     }
 }

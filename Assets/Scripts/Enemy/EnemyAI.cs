@@ -33,7 +33,6 @@ public class EnemyAI : MonoBehaviour
     float _chaseCooldown = 0f;
     float _aggroCooldown = 0f;
     bool _canAttack = true;
-    bool _checkedLastPosition = false;
 
     void Awake()
     {
