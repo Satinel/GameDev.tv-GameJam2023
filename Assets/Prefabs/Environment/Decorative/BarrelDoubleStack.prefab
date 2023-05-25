@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 840368943831676751}
   - component: {fileID: 840368943831676748}
   - component: {fileID: 840368943831676749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 840368943838863505}
   - component: {fileID: 840368943838863518}
   - component: {fileID: 840368943838863519}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 840368944433318822}
   - component: {fileID: 840368944433318823}
   - component: {fileID: 840368944433318820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8883393662129675428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BarrelDoubleStack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,6 +397,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrelStack (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4944414896471055833, guid: f0c20cdec321e2e4e8a74cd75eb00134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c20cdec321e2e4e8a74cd75eb00134, type: 3}
 --- !u!4 &1618431194513781793 stripped
@@ -477,6 +482,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelStack (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944414896471055833, guid: f0c20cdec321e2e4e8a74cd75eb00134,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c20cdec321e2e4e8a74cd75eb00134, type: 3}

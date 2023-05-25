@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1541817609120878780}
   - component: {fileID: 3297776408548279909}
   - component: {fileID: 3203944514626442634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DecoClump
   m_TagString: TightSpace
   m_Icon: {fileID: 0}

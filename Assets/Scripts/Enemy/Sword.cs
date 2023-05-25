@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    [SerializeField] int _damage;
+    [SerializeField] int _damage = 1;
 
     void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<PlayerHealth>())
         {
-            //TODO deal damage to playerhealth script which doesn't exist yet
             other.GetComponent<PlayerHealth>().DealDamage(_damage);
         }
     }

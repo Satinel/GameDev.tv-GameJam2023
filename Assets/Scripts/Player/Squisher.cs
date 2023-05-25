@@ -14,7 +14,7 @@ public class Squisher : MonoBehaviour
     [SerializeField] CharacterController _charaCont;
     [SerializeField] Mover _mover;
     [SerializeField] Hider _hider;
-    // [SerializeField] CinemachineCollider _cineCollider;
+    [SerializeField] CinemachineCollider _cineCollider;
     float _heightDefault;
     Vector3 _centerDefault;
     Vector3 _previousPosition;
@@ -32,6 +32,7 @@ public class Squisher : MonoBehaviour
     float _routineDelta = 0f;
     PlayerControls _controls;
     PlayerHealth _playerHealth;
+    GameObject _hideCamera = null;
     const string _tightSpace = "TightSpace";
 
     void Awake()
@@ -43,14 +44,14 @@ public class Squisher : MonoBehaviour
     void OnEnable()
     {
         _controls.Player.Enable();
-        _playerHealth.OnPlayerHurt += ForceUnsquish;
+        _playerHealth.OnPlayerHurt += ForceUnhide;
         _playerHealth.OnPlayerDefeat += DisableSquishing;
     }
 
     void OnDisable()
     {
         _controls.Player.Disable();
-        _playerHealth.OnPlayerHurt -= ForceUnsquish;
+        _playerHealth.OnPlayerHurt -= ForceUnhide;
         _playerHealth.OnPlayerDefeat -= DisableSquishing;
     }
 
@@ -70,6 +71,7 @@ public class Squisher : MonoBehaviour
         if(other.CompareTag(_tightSpace))
         {
             _inTightSpace = true;
+            _cineCollider.enabled = false;
         }
     }
 
@@ -78,6 +80,15 @@ public class Squisher : MonoBehaviour
         if(other.CompareTag(_tightSpace))
         {
             _inTightSpace = false;
+            Invoke("EnableCineCollider", 1f);
+        }
+    }
+
+    void EnableCineCollider()
+    {
+        if(!_inTightSpace)
+        {
+            _cineCollider.enabled = true;
         }
     }
 
@@ -112,7 +123,6 @@ public class Squisher : MonoBehaviour
         transform.localScale = new Vector3(_squishAmount, 1f, 1f);
         _charaCont.radius *= _radiusSideSquishAmount;
         _charaCont.center = new Vector3(_centerDefault.x, _centerDefault.y, _zCenterOffset);
-        // _cineCollider.enabled = false;
     }
 
     void VerticalSquish()
@@ -148,7 +158,6 @@ public class Squisher : MonoBehaviour
         _charaCont.height *= _squishAmount;
         _charaCont.center = new Vector3(_centerDefault.x, _yCenteredSquishAmount, _centerDefault.z);
         _charaCont.radius = _radiusVertSquishAmount;
-        // _cineCollider.enabled = false;
     }
 
     void FrontSquish()
@@ -164,7 +173,6 @@ public class Squisher : MonoBehaviour
         {
             _isSquished = true;
             transform.localScale = new Vector3(1f, 1f, _squishAmount);
-            // _cineCollider.enabled = false;
         }
     }
 
@@ -180,10 +188,10 @@ public class Squisher : MonoBehaviour
         _charaCont.radius = _radiusDefault;
         _charaCont.stepOffset = _stepOffsetDefault;
         _isSquished = false;
-        // _cineCollider.enabled = true;
+        _cineCollider.enabled = true;
     }
 
-    public void HideInPainting(Transform painting)
+    public void HideInPainting(Transform painting, GameObject camera)
     {
         if(!_canSquish) { return; }
 
@@ -195,6 +203,11 @@ public class Squisher : MonoBehaviour
             _hider.LeaveStealth();
             _isHiding = false;
             Unsquish();
+            if(_hideCamera)
+            {
+                _hideCamera.SetActive(false);
+            }
+            _hideCamera = null;
             return;
         }
 
@@ -218,13 +231,16 @@ public class Squisher : MonoBehaviour
         FrontSquish();
         transform.position = painting.position;
         transform.rotation = painting.rotation;
+        _hideCamera = camera;
+        if(_hideCamera)
+        {
+            _hideCamera.SetActive(true);
+        }
         _isHiding = true;
     }
 
-    void ForceUnsquish()
+    void ForceUnhide()
     {
-        StopAllCoroutines();
-
         if(_isHiding)
         {
             transform.position = _previousPosition;
@@ -232,9 +248,14 @@ public class Squisher : MonoBehaviour
             _mover.SetIsHiding(false);
             _hider.LeaveStealth();
             _isHiding = false;
+            Unsquish();
+            if(_hideCamera)
+            {
+                _hideCamera.SetActive(false);
+            }
+            _hideCamera = null;
         }
 
-        Unsquish();
     }
 
     void DisableSquishing()

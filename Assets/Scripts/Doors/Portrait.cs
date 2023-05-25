@@ -41,7 +41,7 @@ public class Portrait : MonoBehaviour
 
     void Hide()
     {
-        _squisher.HideInPainting(_hidingPosition);
-        _portraitCamera.SetActive(!_portraitCamera.activeSelf);
+        _squisher.HideInPainting(_hidingPosition, _portraitCamera);
+        // _portraitCamera.SetActive(!_portraitCamera.activeSelf);
     }
 }

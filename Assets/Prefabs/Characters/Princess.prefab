@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 5
-  _iframeDuration: 12
+  _iframeDuration: 15
   _blinkDelay: 0.05
   _renderers:
   - {fileID: 5277621137736661315}
@@ -1215,6 +1215,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _defeatCanvas: {fileID: 0}
   _currentHealth: 0
 --- !u!1 &3371759089904354389
 GameObject:

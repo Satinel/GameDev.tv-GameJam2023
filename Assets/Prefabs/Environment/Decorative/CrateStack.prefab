@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3273072540758056001}
   - component: {fileID: 3273072540758056000}
   - component: {fileID: 2143786028587094656}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CrateStack
   m_TagString: TightSpace
   m_Icon: {fileID: 0}
