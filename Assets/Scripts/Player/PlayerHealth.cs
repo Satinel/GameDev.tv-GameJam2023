@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float _blinkDelay = 0.05f;
     [SerializeField] SkinnedMeshRenderer[] _renderers;
     [SerializeField] MeshRenderer _crownRenderer;
+    [SerializeField] Image[] _heartImages;
     
     Squisher _squisher;
     [SerializeField] int _currentHealth;
@@ -22,6 +24,11 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    void Start()
+    {
+        UpdateHealthHUD();
+    }
+
     public void DealDamage(int damage)
     {
         if(_isInvincible) { return; }
@@ -29,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         _squisher.ForceUnsquish();
 
         _currentHealth -= damage;
+        UpdateHealthHUD();
         
         if(_currentHealth <= 0)
         {
@@ -40,6 +48,18 @@ public class PlayerHealth : MonoBehaviour
             //TODO update UI that hasn't been made yet
             _blinkTime = 0;
             StartCoroutine(IFrames());
+        }
+    }
+
+    void UpdateHealthHUD()
+    {
+        foreach (Image heart in _heartImages)
+        {
+            heart.enabled = false;
+        }
+        for (int i = 0; i < _currentHealth; i++)
+        {
+            _heartImages[i].enabled = true;
         }
     }
 
