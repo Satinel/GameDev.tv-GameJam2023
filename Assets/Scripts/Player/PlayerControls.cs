@@ -89,6 +89,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Options"",
+                    ""type"": ""Button"",
+                    ""id"": ""17f38d0a-f1e1-48cb-9c65-ecbd516115fa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -278,6 +287,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23f93bd9-2a45-48f0-a9e1-369313b2c76a"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Options"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c25bc84e-3c23-496c-b1c7-bf43227704d4"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Options"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -321,6 +352,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_ToggleWalk = m_Player.FindAction("ToggleWalk", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Options = m_Player.FindAction("Options", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -387,6 +419,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_ToggleWalk;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Options;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -398,6 +431,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @ToggleWalk => m_Wrapper.m_Player_ToggleWalk;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Options => m_Wrapper.m_Player_Options;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -428,6 +462,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Options.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOptions;
+                @Options.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOptions;
+                @Options.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOptions;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -453,6 +490,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Options.started += instance.OnOptions;
+                @Options.performed += instance.OnOptions;
+                @Options.canceled += instance.OnOptions;
             }
         }
     }
@@ -484,5 +524,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnToggleWalk(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnOptions(InputAction.CallbackContext context);
     }
 }

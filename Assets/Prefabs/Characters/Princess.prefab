@@ -1181,6 +1181,7 @@ MonoBehaviour:
   _charaCont: {fileID: 0}
   _mover: {fileID: 0}
   _hider: {fileID: 2103649488844453286}
+  _cineCollider: {fileID: 0}
 --- !u!114 &7249637272445932026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,6 +1217,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _defeatCanvas: {fileID: 0}
+  _faderImage: {fileID: 0}
+  _wipeDelay: 0.5
   _currentHealth: 0
 --- !u!1 &3371759089904354389
 GameObject:

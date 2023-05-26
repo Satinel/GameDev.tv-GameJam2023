@@ -15,6 +15,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] MeshRenderer _crownRenderer;
     [SerializeField] Image[] _heartImages;
     [SerializeField] Canvas _defeatCanvas;
+    [SerializeField] Canvas _mainMenuCanvas;
+    [SerializeField] Image _faderImage;
+    [SerializeField] float _wipeDelay = 0.5f;
     
     Animator _animator;
     [SerializeField] int _currentHealth;
@@ -92,11 +95,27 @@ public class PlayerHealth : MonoBehaviour
         _isInvincible = false;
     }
 
-    private void HandleDeath()
+    void HandleDeath()
     {
+        //TODO play sad SFX/Music
         _animator.SetTrigger(DEATH_HASH);
         OnPlayerDefeat?.Invoke();
         _defeatCanvas.enabled = true;
         Time.timeScale = 0.1f;
+        StartCoroutine(ImageWipe());
+    }
+
+    IEnumerator ImageWipe()
+    {
+        yield return new WaitForSeconds(_wipeDelay);
+
+        while(_faderImage.fillAmount < 1)
+        {
+            _faderImage.fillAmount += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        _mainMenuCanvas.enabled = true;
+        Time.timeScale = 0f;
     }
 }
