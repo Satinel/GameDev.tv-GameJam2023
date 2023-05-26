@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffdc11ad29e9834cac0133f4371b9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 3
   _iframeDuration: 15
   _blinkDelay: 0.05
   _renderers:
@@ -1217,6 +1217,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _defeatCanvas: {fileID: 0}
+  _mainMenuCanvas: {fileID: 0}
   _faderImage: {fileID: 0}
   _wipeDelay: 0.5
   _currentHealth: 0

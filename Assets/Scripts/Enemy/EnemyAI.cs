@@ -153,6 +153,7 @@ public class EnemyAI : MonoBehaviour
         if(_currentState == State.Chasing && (_chaseCooldown > _chaseDuration))
         {
             _navAgent.destination = transform.position;
+            _textAnimator.SetTrigger(CONFUSED_HASH);
             _characterAnimator.SetTrigger(CONFUSED_HASH);
             //TODO play angry/confused noises SFX?
             _currentState = State.Searching;
@@ -214,11 +215,9 @@ public class EnemyAI : MonoBehaviour
 
     public void Chase(Vector3 lastSeen)
     {
-        if(_currentState != State.Chasing && _currentState != State.Attacking)
-        {
-            _textAnimator.SetTrigger(AGGRO_HASH);
-            //TODO play aggro SFX
-        }
+        _textAnimator.SetTrigger(CONFUSED_HASH);
+        //TODO play confused SFX
+
         _aggroCooldown = 0f;
         _chaseCooldown = 0f;
         _lastSeenPosition = lastSeen;

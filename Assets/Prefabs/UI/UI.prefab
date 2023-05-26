@@ -142,6 +142,9 @@ MonoBehaviour:
   _resumeButton: {fileID: 3418147120853974626}
   _menuPanel: {fileID: 4140320773224190760}
   _playerHealth: {fileID: 0}
+  _optionsFirstButton: {fileID: 3418147120853974626}
+  _audioFirstButton: {fileID: 4005278015193128018}
+  _optionsAlternateFirstButton: {fileID: 5323243092797159529}
 --- !u!1001 &559620483777504715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -440,7 +443,7 @@ PrefabInstance:
     - target: {fileID: 1243132797043474806, guid: 991a2891bdea7ad4391eab1ba34cd9d2,
         type: 3}
       propertyPath: m_fontSize
-      value: 100
+      value: 81.7
       objectReference: {fileID: 0}
     - target: {fileID: 1896906077631075591, guid: 991a2891bdea7ad4391eab1ba34cd9d2,
         type: 3}
@@ -490,12 +493,12 @@ PrefabInstance:
     - target: {fileID: 8642470771950978941, guid: 991a2891bdea7ad4391eab1ba34cd9d2,
         type: 3}
       propertyPath: m_fontSize
-      value: 81.25
+      value: 48.05
       objectReference: {fileID: 0}
     - target: {fileID: 8642470773480988013, guid: 991a2891bdea7ad4391eab1ba34cd9d2,
         type: 3}
       propertyPath: m_fontSize
-      value: 89.9
+      value: 53.6
       objectReference: {fileID: 0}
     - target: {fileID: 8999157249428900124, guid: 991a2891bdea7ad4391eab1ba34cd9d2,
         type: 3}
@@ -535,6 +538,12 @@ Canvas:
 --- !u!224 &4140320773287066588 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 30059371334421188, guid: 991a2891bdea7ad4391eab1ba34cd9d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4116172516185960728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5323243092797159529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8124599812567107953, guid: 991a2891bdea7ad4391eab1ba34cd9d2,
     type: 3}
   m_PrefabInstance: {fileID: 4116172516185960728}
   m_PrefabAsset: {fileID: 0}
@@ -689,6 +698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719380295778357942, guid: a9839a9dc8bd5714dac36f379c334e4e,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3719380295778357942, guid: a9839a9dc8bd5714dac36f379c334e4e,
         type: 3}
@@ -1016,6 +1030,12 @@ RectTransform:
 --- !u!223 &1799532014609511714 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8319195957732491460, guid: 185fc78dec2fa064c85700722fb881de,
+    type: 3}
+  m_PrefabInstance: {fileID: 7749147330476832230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4005278015193128018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6638054418853423540, guid: 185fc78dec2fa064c85700722fb881de,
     type: 3}
   m_PrefabInstance: {fileID: 7749147330476832230}
   m_PrefabAsset: {fileID: 0}

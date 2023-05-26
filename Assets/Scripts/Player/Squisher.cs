@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
@@ -94,7 +92,7 @@ public class Squisher : MonoBehaviour
 
     void SideSquish()
     {
-        if(_isSquishing || _isHiding || !_canSquish) { return; }
+        if(_isSquishing || _isHiding || !_canSquish || Time.timeScale == 0) { return; }
 
         if(_isSquished)
         {
@@ -127,7 +125,7 @@ public class Squisher : MonoBehaviour
 
     void VerticalSquish()
     {
-        if(_isSquishing || _isHiding || !_canSquish) { return; }
+        if(_isSquishing || _isHiding || !_canSquish || Time.timeScale == 0) { return; }
 
         if(_isSquished)
         {
@@ -162,7 +160,7 @@ public class Squisher : MonoBehaviour
 
     void FrontSquish()
     {
-        if(_isSquishing || _isHiding || !_canSquish) { return; }
+        if(_isSquishing || _isHiding || !_canSquish || Time.timeScale == 0) { return; }
 
         if(_isSquished)
         {
@@ -178,7 +176,7 @@ public class Squisher : MonoBehaviour
 
     void Unsquish()
     {
-        if(_inTightSpace || _isHiding) { return; }
+        if(_inTightSpace || _isHiding || Time.timeScale == 0) { return; }
 
         //TODO play a POP! sort of sound
 

@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -10,9 +9,13 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] GameObject _resumeButton;
     [SerializeField] GameObject _menuPanel;
     [SerializeField] PlayerHealth _playerHealth;
+    [SerializeField] GameObject _optionsFirstButton;
+    [SerializeField] GameObject _audioFirstButton;
+    [SerializeField] GameObject _optionsAlternateFirstButton;
     
     PlayerControls _controls;
     bool _playerDefeated = false;
+    float _currentTimescale = 1f;
 
     void Awake()
     {
@@ -34,6 +37,7 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         _controls.Player.Options.performed += _ => ToggleMainMenuCanvas();
+        EventSystem.current.SetSelectedGameObject(null);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -43,6 +47,7 @@ public class OptionsMenu : MonoBehaviour
         _playerDefeated = true;
         _resumeButton.SetActive(false);
         _menuPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(_optionsAlternateFirstButton);
     }
 
     public void ToggleMainMenuCanvas()
@@ -50,24 +55,40 @@ public class OptionsMenu : MonoBehaviour
         if(_audioCanvas.enabled)
         {
             ToggleAudioCanvas();
-        }
-        else if(_playerDefeated)
-        {
-            return; 
+            if(_playerDefeated)
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsAlternateFirstButton);
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsFirstButton);
+            }
         }
         else if(_mainOptionsCanvas.enabled)
         {
+            EventSystem.current.SetSelectedGameObject(null);
             _mainOptionsCanvas.enabled = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
-            Time.timeScale = 1;
+            Time.timeScale = _currentTimescale;
+            
         }
         else
         {
+            _currentTimescale = Time.timeScale;
             _mainOptionsCanvas.enabled = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
+            EventSystem.current.SetSelectedGameObject(null);
+            if(_playerDefeated)
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsAlternateFirstButton);
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsFirstButton);
+            }
         }
     }
 
@@ -84,14 +105,25 @@ public class OptionsMenu : MonoBehaviour
     }
 
     public void ToggleAudioCanvas()
-    {
-        if(_audioCanvas)
+    {        
+        if(_audioCanvas.enabled)
         {
-            _audioCanvas.enabled = !_audioCanvas.enabled;
+            _audioCanvas.enabled = false;
+            _mainOptionsCanvas.enabled = true;
+            if(_playerDefeated)
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsAlternateFirstButton);
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsFirstButton);
+            }
         }
-        if(_mainOptionsCanvas)
+        else
         {
-            _mainOptionsCanvas.enabled = !_mainOptionsCanvas.enabled;
+            _audioCanvas.enabled = true;
+            _mainOptionsCanvas.enabled = false;
+            EventSystem.current.SetSelectedGameObject(_audioFirstButton);
         }
     }
 

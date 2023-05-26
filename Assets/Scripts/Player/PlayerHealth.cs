@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Canvas _mainMenuCanvas;
     [SerializeField] Image _faderImage;
     [SerializeField] float _wipeDelay = 0.5f;
+    [SerializeField] GameObject _retryButton;
     
     Animator _animator;
     [SerializeField] int _currentHealth;
@@ -115,6 +116,8 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_retryButton);
         _mainMenuCanvas.enabled = true;
         Time.timeScale = 0f;
     }
