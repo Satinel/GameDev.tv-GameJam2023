@@ -10,6 +10,7 @@ public class Lever : MonoBehaviour
     [SerializeField] float _anglesPerSecond = 180;
     [SerializeField] float _rotationDuration = 1f;
     [SerializeField] LeverCutscene _cutscene;
+    [SerializeField] bool _opensDoors;
 
     MeshRenderer _renderer;
     bool _hasActivated = false;
@@ -72,9 +73,21 @@ public class Lever : MonoBehaviour
         _renderer.material = _activateMaterial;
         //TODO Play a sound!
         _interactable._IsActive = false;
-        foreach (Transform door in _doors)
+        
+        if(_opensDoors)
         {
-            StartCoroutine(RaiseDoor(door));
+            foreach(Transform door in _doors)
+            {
+                door.GetComponentInChildren<Animator>().SetTrigger(INTERACT_HASH);
+            }
+            return;
+        }
+        else
+        {
+            foreach (Transform door in _doors)
+            {
+                StartCoroutine(RaiseDoor(door));
+            }
         }
     }
 

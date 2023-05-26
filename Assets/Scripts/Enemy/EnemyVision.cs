@@ -84,7 +84,7 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
         }
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, _radius);
 
