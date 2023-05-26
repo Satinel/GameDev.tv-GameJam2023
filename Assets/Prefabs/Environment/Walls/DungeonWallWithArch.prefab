@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3428253554198696185}
+  - component: {fileID: 1099848396742391098}
+  - component: {fileID: 1068893717780974583}
   m_Layer: 0
   m_Name: DungeonWallWithArch
   m_TagString: Untagged
@@ -34,6 +36,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1099848396742391098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710834485781689890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9645925, y: 8.000798, z: 1}
+  m_Center: {x: 1.9133537, y: 4.0141387, z: 0}
+--- !u!65 &1068893717780974583
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710834485781689890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.946064, y: 8.000798, z: 1}
+  m_Center: {x: 18.08549, y: 4.007069, z: 0}
 --- !u!1001 &2238743589652545400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,7 +214,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 16
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7132155562267534982, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
+    - {fileID: 2154933793508841521, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
+    - {fileID: 1435969506612704526, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
+    - {fileID: 1885748942643005449, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
 --- !u!4 &7503373846339658240 stripped
 Transform:
@@ -271,7 +303,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7132155562267534982, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
+    - {fileID: 2154933793508841521, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
+    - {fileID: 1435969506612704526, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
+    - {fileID: 1885748942643005449, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32ef24e07e9cd8c46abb6c6ec219210b, type: 3}
 --- !u!4 &7952507622024813833 stripped
 Transform:

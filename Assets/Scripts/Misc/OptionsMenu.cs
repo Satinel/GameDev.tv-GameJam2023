@@ -35,6 +35,7 @@ public class OptionsMenu : MonoBehaviour
     {
         _controls.Player.Options.performed += _ => ToggleMainMenuCanvas();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void HideResumeButton()
@@ -58,12 +59,14 @@ public class OptionsMenu : MonoBehaviour
         {
             _mainOptionsCanvas.enabled = false;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 1;
         }
         else
         {
             _mainOptionsCanvas.enabled = true;
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
     }
