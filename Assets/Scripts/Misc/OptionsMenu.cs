@@ -100,6 +100,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        CurrentRunManager currentRunManager = FindObjectOfType<CurrentRunManager>();
+        Destroy(currentRunManager);
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }

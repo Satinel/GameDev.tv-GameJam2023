@@ -9,6 +9,7 @@ public class Squisher : MonoBehaviour
     [SerializeField] float _coroutineDuration = 0.8f;
     [SerializeField] float _radiusSideSquishAmount = 0.05f;
     [SerializeField] float _radiusVertSquishAmount = 0.07f;
+    // [SerializeField] float _heightDelta = 0.0021f; //This is probably a terrible way to do things regardless
     [SerializeField] CharacterController _charaCont;
     [SerializeField] Mover _mover;
     [SerializeField] Hider _hider;
@@ -152,12 +153,21 @@ public class Squisher : MonoBehaviour
 
     IEnumerator HeightRoutine()
     {
-        while(_routineDelta < _coroutineDuration)
+        // while(_routineDelta < _coroutineDuration)
+        // {
+        //     transform.localScale = new Vector3(1f, transform.localScale.y - _squishAmount, 1f);
+        //     _routineDelta += _heightDelta;
+        //     yield return null;
+        // }
+        int _routineDeltaInt = 0;
+
+        while(_routineDeltaInt < 10) //TODO Test this (also it's badly written but I'm on a time limit here)
         {
-            transform.localScale = new Vector3(1f, transform.localScale.y - _squishAmount, 1f);
-            _routineDelta += 0.0021f;
-            yield return null;
+            transform.localScale = new Vector3(1f, transform.localScale.y - (10 * _squishAmount), 1f);
+            _routineDeltaInt++;
+            yield return new WaitForSeconds(0.01f);
         }
+
         _isSquishing = false;
         _isSquished = true;
         transform.localScale = new Vector3(1f, _squishAmount, 1f);

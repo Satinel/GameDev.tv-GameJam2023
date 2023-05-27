@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject _retryButton;
     
     Animator _animator;
+    CurrentRunManager _currentRunManager;
     [SerializeField] int _currentHealth;
     bool _isInvincible = false;
     int _blinkTime = 0;
@@ -31,11 +32,12 @@ public class PlayerHealth : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _currentHealth = _maxHealth;
+        _currentRunManager = FindObjectOfType<CurrentRunManager>();
     }
 
     void Start()
     {
-        UpdateHealthHUD();
+        GainHeart(_currentRunManager.GetCollectedHeartsCount());
     }
 
     public void DealDamage(int damage)
@@ -122,10 +124,15 @@ public class PlayerHealth : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void GainHeart(int value)
+    void GainHeart(int value)
     {
         _maxHealth += value;
         _currentHealth += value;
         UpdateHealthHUD();
+    }
+
+    public void PickupHeart(int value)
+    {
+        GainHeart(value);
     }
 }

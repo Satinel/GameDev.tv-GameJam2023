@@ -14,7 +14,7 @@ public class HeartPickup : MonoBehaviour
         if(other.GetComponent<PlayerHealth>() && !_isCollected)
         {
             _isCollected = true;
-            other.GetComponent<PlayerHealth>().GainHeart(_healthValue);
+            other.GetComponent<PlayerHealth>().PickupHeart(_healthValue);
             gameObject.SetActive(false);
         }
     }
