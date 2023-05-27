@@ -113,12 +113,19 @@ public class PlayerHealth : MonoBehaviour
         while(_faderImage.fillAmount < 1)
         {
             _faderImage.fillAmount += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_retryButton);
         _mainMenuCanvas.enabled = true;
         Time.timeScale = 0f;
+    }
+
+    public void GainHeart(int value)
+    {
+        _maxHealth += value;
+        _currentHealth += value;
+        UpdateHealthHUD();
     }
 }

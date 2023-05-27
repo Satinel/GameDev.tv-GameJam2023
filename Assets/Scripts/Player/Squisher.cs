@@ -123,7 +123,7 @@ public class Squisher : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x - _squishRoutineAmount, 1f, 1f);
             _routineDelta += 0.05f;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
         _isSquishing = false;
         _isSquished = true;
@@ -156,7 +156,7 @@ public class Squisher : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, transform.localScale.y - _squishAmount, 1f);
             _routineDelta += 0.0021f;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
         _isSquishing = false;
         _isSquished = true;
