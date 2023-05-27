@@ -10,7 +10,10 @@ public class LeverCutscene : MonoBehaviour
 
     public void EnableCamera()
     {
-        _tipText.SetActive(false);
+        if(_tipText)
+        {
+            _tipText.SetActive(false);
+        }
         _camera.SetActive(true);
         _followCamInputProvider.enabled = false;
         Invoke("DisableCamera", _delayTime);

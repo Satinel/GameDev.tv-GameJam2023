@@ -32,6 +32,7 @@ public class Squisher : MonoBehaviour
     PlayerHealth _playerHealth;
     GameObject _hideCamera = null;
     const string _tightSpace = "TightSpace";
+    const string _tunnel = "Tunnel";
 
     void Awake()
     {
@@ -71,6 +72,10 @@ public class Squisher : MonoBehaviour
             _inTightSpace = true;
             _cineCollider.enabled = false;
         }
+        else if(other.CompareTag(_tunnel))
+        {
+            _inTightSpace = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -79,6 +84,10 @@ public class Squisher : MonoBehaviour
         {
             _inTightSpace = false;
             Invoke("EnableCineCollider", 1f);
+        }
+        else if(other.CompareTag(_tunnel))
+        {
+            _inTightSpace = false;
         }
     }
 
@@ -223,6 +232,7 @@ public class Squisher : MonoBehaviour
         }
 
         _mover.SetIsHiding(true);
+        _mover.HideInteractable();
         _hider.AttemptStealth();
         _previousPosition = transform.position;
         _previousRotation = transform.rotation;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2128930593087406963}
   - component: {fileID: 7247185180804654024}
   m_Layer: 0
-  m_Name: 2x4WallWithGap
+  m_Name: GAP2x4Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
