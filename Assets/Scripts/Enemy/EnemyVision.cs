@@ -11,11 +11,21 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
     [SerializeField] LayerMask _targetMask;
     [SerializeField] LayerMask _obstructionMask;
     [SerializeField] EnemyAI enemyAI;
+    [SerializeField] LevelManager _levelManager;
 
     Transform _player;
     Hider _hider;
     bool _canSeePlayer;
     Vector3 _lastSeenPosition;
+    bool _wasSeen;
+
+    void Awake()
+    {
+        if(!_levelManager)
+        {
+            _levelManager = FindObjectOfType<LevelManager>();
+        }
+    }
 
     IEnumerator Start()
     {
@@ -24,6 +34,16 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
             yield return new WaitForSeconds(0.2f);
             Check();
         }
+    }
+
+    void OnEnable()
+    {
+        _levelManager.OnLevelCompleted += ReportSightings;
+    }
+
+    void OnDisable()
+    {
+        _levelManager.OnLevelCompleted -= ReportSightings;
     }
 
     void Check()
@@ -52,6 +72,7 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
                     if(!_canSeePlayer)
                     {
                         _hider.AdjustAlertedEnemiesCount(1);
+                        _wasSeen = true;
                     }
                     _canSeePlayer = true;
                     enemyAI.Aggro(_player);
@@ -82,6 +103,11 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
             _player.GetComponent<Hider>().AdjustAlertedEnemiesCount(-1);
             enemyAI.Chase(_lastSeenPosition);
         }
+    }
+
+    void ReportSightings()
+    {
+        _levelManager.ReportGuardsAlerted(_wasSeen);
     }
 
     void OnDrawGizmosSelected()

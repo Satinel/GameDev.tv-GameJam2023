@@ -9,6 +9,7 @@ public class Mover : MonoBehaviour
     [SerializeField] float _blendTime = 0.1f;
     [SerializeField] float _rotationSpeed = 15f;
     [SerializeField] Canvas _interactCanvas;
+    [SerializeField] LevelManager _levelManager;
 
     Transform _mainCamera;
     float _verticalVelocity;
@@ -17,7 +18,7 @@ public class Mover : MonoBehaviour
     Vector2 _movementValue;
     bool _isWalking = false;
     bool _isHiding = false;
-    bool _isDefeated = false;
+    bool _isDisabled = false;
     PlayerControls _controls;
     CharacterController _characterController;
     PlayerHealth _playerHealth;
@@ -40,12 +41,14 @@ public class Mover : MonoBehaviour
     {
         _controls.Player.Enable();
         _playerHealth.OnPlayerDefeat += DisableControl;
+        _levelManager.OnLevelCompleted += DisableControl;
     }
 
     void OnDisable()
     {
         _controls.Player.Disable();
         _playerHealth.OnPlayerDefeat -= DisableControl;
+        _levelManager.OnLevelCompleted -= DisableControl;
     }
 
     void Start()
@@ -75,7 +78,7 @@ public class Mover : MonoBehaviour
 
     void PlayerInput()
     {
-        if(_isHiding || _isDefeated)
+        if(_isHiding || _isDisabled)
         {
             return;
         }
@@ -112,7 +115,7 @@ public class Mover : MonoBehaviour
 
     void DisableControl()
     {
-        _isDefeated = true;
+        _isDisabled = true;
     }
 
     Vector3 CalculateMovement()

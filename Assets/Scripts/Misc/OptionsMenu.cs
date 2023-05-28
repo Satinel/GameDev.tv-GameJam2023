@@ -12,9 +12,11 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] GameObject _optionsFirstButton;
     [SerializeField] GameObject _audioFirstButton;
     [SerializeField] GameObject _optionsAlternateFirstButton;
+    [SerializeField] LevelManager _levelManager;
     
     PlayerControls _controls;
     bool _playerDefeated = false;
+    bool _isAvailable = false;
     float _currentTimescale = 1f;
 
     void Awake()
@@ -26,12 +28,16 @@ public class OptionsMenu : MonoBehaviour
     {
         _controls.Player.Enable();
         _playerHealth.OnPlayerDefeat += HideResumeButton;
+        _levelManager.OnLevelStarted += MakeAvailable;
+        _levelManager.OnLevelCompleted += MakeUnavailable;
     }
 
     void OnDisable()
     {
         _controls.Player.Disable();
         _playerHealth.OnPlayerDefeat -= HideResumeButton;
+        _levelManager.OnLevelStarted -= MakeAvailable;
+        _levelManager.OnLevelCompleted -= MakeUnavailable;
     }
 
     void Start()
@@ -40,6 +46,16 @@ public class OptionsMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    void MakeAvailable()
+    {
+        _isAvailable = true;
+    }
+
+    void MakeUnavailable()
+    {
+        _isAvailable = false;
     }
 
     void HideResumeButton()
@@ -52,6 +68,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void ToggleMainMenuCanvas()
     {
+        if(!_isAvailable) { return; }
+
         if(_audioCanvas.enabled)
         {
             ToggleAudioCanvas();
@@ -101,7 +119,7 @@ public class OptionsMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         CurrentRunManager currentRunManager = FindObjectOfType<CurrentRunManager>();
-        Destroy(currentRunManager);
+        Destroy(currentRunManager.gameObject);
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }

@@ -161,7 +161,7 @@ public class Squisher : MonoBehaviour
         // }
         int _routineDeltaInt = 0;
 
-        while(_routineDeltaInt < 10) //TODO Test this (also it's badly written but I'm on a time limit here)
+        while(_routineDeltaInt < 10) //This works! It's badly written but I'm on a time limit here
         {
             transform.localScale = new Vector3(1f, transform.localScale.y - (10 * _squishAmount), 1f);
             _routineDeltaInt++;

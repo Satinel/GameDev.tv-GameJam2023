@@ -19,10 +19,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Image _faderImage;
     [SerializeField] float _wipeDelay = 0.5f;
     [SerializeField] GameObject _retryButton;
+    [SerializeField] LevelManager _levelManager;
     
     Animator _animator;
     CurrentRunManager _currentRunManager;
     [SerializeField] int _currentHealth;
+    int _heartsCollected = 0;
     bool _isInvincible = false;
     int _blinkTime = 0;
 
@@ -38,6 +40,16 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         GainHeart(_currentRunManager.GetCollectedHeartsCount());
+    }
+
+    void OnEnable()
+    {
+        _levelManager.OnLevelCompleted += UpdateCurrentRunHeartCount;
+    }
+
+    void OnDisable()
+    {
+        _levelManager.OnLevelCompleted -= UpdateCurrentRunHeartCount;
     }
 
     public void DealDamage(int damage)
@@ -124,6 +136,12 @@ public class PlayerHealth : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    void UpdateCurrentRunHeartCount() // these method names are becoming unwieldly
+    {
+        _currentRunManager.SetCollectedHeartsCount(_heartsCollected);
+        _levelManager.ReportHeartCollected(_heartsCollected > 0);
+    }
+
     void GainHeart(int value)
     {
         _maxHealth += value;
@@ -133,6 +151,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void PickupHeart(int value)
     {
+        _heartsCollected += value;
         GainHeart(value);
     }
 }

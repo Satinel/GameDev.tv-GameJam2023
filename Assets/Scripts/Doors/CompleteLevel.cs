@@ -11,6 +11,10 @@ public class CompleteLevel : MonoBehaviour
     void Awake()
     {
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if(!_levelManager)
+        {
+            _levelManager = FindObjectOfType<LevelManager>();
+        }
     }
 
     void OnTriggerEnter(Collider other)

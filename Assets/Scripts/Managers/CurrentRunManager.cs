@@ -5,34 +5,36 @@ using UnityEngine;
 
 public class CurrentRunManager : MonoBehaviour
 {
-    [field:SerializeField] public int CollectedHearts { get; private set; }
+    [field:SerializeField] public int CollectedHearts { get; private set; } = 0; // This doesn't need to be public but anyway
+    List<float> _completionTimes = new List<float>();
     
     PlayerHealth _playerHealth;
-    List<float> _completionTimes = new List<float>();
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
-        _completionTimes[0] = 0; // This is to sync the numbers better since the main menu is build index 0
-    }
-
-    void OnNewSceneLoaded()
-    {
-        
+        if(FindObjectOfType<CurrentRunManager>() != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void SetCompletionTime(int levelIndex, float compTime)
     {
-        _completionTimes[levelIndex] = compTime;
+        _completionTimes.Insert(levelIndex, compTime);
     }
 
-    public void SetCollectedHeartsCount()
+    public List<float> GetCompletionTimes()
     {
-        CollectedHearts++;
+        return _completionTimes;
+    }
+
+    public void SetCollectedHeartsCount(int value)
+    {
+        CollectedHearts += value;
     }
 
     public int GetCollectedHeartsCount()
