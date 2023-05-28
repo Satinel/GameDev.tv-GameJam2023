@@ -22,8 +22,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TMP_Text _timerTextField;
     [SerializeField] TMP_Text _statsText;
 
-    CurrentRunManager _currentRunManager;
-
     int _currentSceneIndex;
     float _completionTime;
     bool _timerStarted;
@@ -45,7 +43,6 @@ public class LevelManager : MonoBehaviour
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         _image.fillClockwise = false;
 
-        _currentRunManager = FindObjectOfType<CurrentRunManager>();
     }
 
     IEnumerator Start()
@@ -84,7 +81,7 @@ public class LevelManager : MonoBehaviour
     void StopTimer()
     {
         _timerStarted = false;
-        _currentRunManager.SetCompletionTime(_currentSceneIndex - 1, _completionTime);
+        CurrentRunManager.Instance.SetCompletionTime(_currentSceneIndex - 1, _completionTime);
     }
 
     IEnumerator ImageWipe()
@@ -110,9 +107,9 @@ public class LevelManager : MonoBehaviour
     void UpdateStats()
     {
         float totalTime = 0;
-        string timeStats = "<size=120%>Level Completion Times:</size>";
-        _copyStats = "Level Completion Times:";
-        List<float> times = _currentRunManager.GetCompletionTimes();
+        string timeStats = "<size=120%>-Level Completion Times-</size>";
+        _copyStats = "-Level Completion Times-";
+        List<float> times = CurrentRunManager.Instance.GetCompletionTimes();
         for (int i = 0; i < times.Count; i++)
         {
             string formattedTime = FormatTime(times[i]);
@@ -120,18 +117,18 @@ public class LevelManager : MonoBehaviour
             _copyStats += $"\nLevel {i}: {PlainTextFormatTime(times[i])}";
             totalTime += times[i];
         }
-        timeStats += $"\n\nTotal Time: {FormatTime(totalTime)}";
-        _copyStats += $"\n\nTotal Time: {PlainTextFormatTime(totalTime)}";
-        if(_heartWasCollected)
-        {
-            _totalStats = $"Collected Hearts: 1/1\nGuards Alerted: {_timesSeen}\n\n{timeStats}";
-            _totalStats = $"Collected Hearts: 1/1\nGuards Alerted: {_timesSeen}\n\n{_copyStats}";
-        }
-        else
-        {
-            _totalStats = $"Collected heart: 0/1\nGuards Alerted: {_timesSeen}\n\n{timeStats}";
-            _totalStats = $"Collected heart: 0/1\nGuards Alerted: {_timesSeen}\n\n{_copyStats}";
-        }
+        timeStats += $"\nTotal Time: {FormatTime(totalTime)}";
+        _copyStats += $"\nTotal Time: {PlainTextFormatTime(totalTime)}";
+        // if(_heartWasCollected)
+        // {
+            _totalStats = $"Collected Hearts: {CurrentRunManager.Instance.CollectedHearts}/{_currentSceneIndex}\nGuards Alerted: {_timesSeen}\nTotal Guards Alerted: {CurrentRunManager.Instance.AlertedGuards}\n{timeStats}";
+            _totalStats = $"Collected Hearts: {CurrentRunManager.Instance.CollectedHearts}/{_currentSceneIndex}\nGuards Alerted: {_timesSeen}\nTotal Guards Alerted: {CurrentRunManager.Instance.AlertedGuards}\n{_copyStats}";
+        // }
+        // else
+        // {
+        //     _totalStats = $"Collected heart: 0/1\nGuards Alerted: {_timesSeen}\n{timeStats}";
+        //     _totalStats = $"Collected heart: 0/1\nGuards Alerted: {_timesSeen}\n{_copyStats}";
+        // }
         _statsText.text = _totalStats;
     }
 
@@ -158,6 +155,7 @@ public class LevelManager : MonoBehaviour
         StopTimer();
         StartCoroutine(ImageWipe());
         OnLevelCompleted?.Invoke();
+        CurrentRunManager.Instance.SetTotalGuardsAlerted(_timesSeen);
         //TODO play/change music??!
     }
 

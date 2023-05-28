@@ -9,6 +9,7 @@ public class DeathFloor : MonoBehaviour
         if(other.GetComponent<PlayerHealth>())
         {
             other.GetComponent<PlayerHealth>().DealDamage(42);
+            GetComponent<Collider>().enabled = false;
         }
     }
 }

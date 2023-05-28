@@ -1339,6 +1339,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   enemyAI: {fileID: 6457871282977757611}
+  _levelManager: {fileID: 0}
 --- !u!1 &6457871282977757613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,12 +1424,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cafffc11c3de54fa54c134f26ceb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 3.5
+  runSpeed: 3.75
   walkSpeed: 1.5
   _attackRange: 2.5
   _attackDelay: 2
-  _chaseDuration: 5
-  _searchDuration: 5
+  _chaseDuration: 7
+  _searchDuration: 10
   _patrolRoute: {fileID: 0}
   _waypointRange: 1.1
   _characterAnimator: {fileID: 310136831248132481}

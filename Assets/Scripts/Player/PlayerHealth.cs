@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] LevelManager _levelManager;
     
     Animator _animator;
-    CurrentRunManager _currentRunManager;
     [SerializeField] int _currentHealth;
     int _heartsCollected = 0;
     bool _isInvincible = false;
@@ -35,12 +34,11 @@ public class PlayerHealth : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _currentHealth = _maxHealth;
-        _currentRunManager = FindObjectOfType<CurrentRunManager>();
     }
 
     void Start()
     {
-        GainHeart(_currentRunManager.GetCollectedHeartsCount());
+        GainHeart(CurrentRunManager.Instance.CollectedHearts);
     }
 
     void OnEnable()
@@ -140,7 +138,7 @@ public class PlayerHealth : MonoBehaviour
 
     void UpdateCurrentRunHeartCount() // these method names are becoming unwieldly
     {
-        _currentRunManager.SetCollectedHeartsCount(_heartsCollected);
+        CurrentRunManager.Instance.SetCollectedHeartsCount(_heartsCollected);
         _levelManager.ReportHeartCollected(_heartsCollected > 0);
     }
 
