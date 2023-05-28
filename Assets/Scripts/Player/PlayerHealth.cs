@@ -26,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int _currentHealth;
     int _heartsCollected = 0;
     bool _isInvincible = false;
+    bool _hasDied = false;
     int _blinkTime = 0;
 
     readonly int DEATH_HASH = Animator.StringToHash("Death");
@@ -54,7 +55,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        if(_isInvincible) { return; }
+        if(_isInvincible || _hasDied) { return; }
 
         _currentHealth -= damage;
         UpdateHealthHUD();
@@ -62,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
         
         if(_currentHealth <= 0)
         {
+            _hasDied = true;
             HandleDeath();
         }
         else
