@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 990997663468492828}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 7388215910393229351}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 7880848160370985960}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -1871,7 +1871,7 @@ PrefabInstance:
     - target: {fileID: 4413200314992271226, guid: 05029fafd2d73ea4c8323867d1a6f86f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DefeatScreen, Assembly-CSharp
+      value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4413200314992271226, guid: 05029fafd2d73ea4c8323867d1a6f86f,
         type: 3}

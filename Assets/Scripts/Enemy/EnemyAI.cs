@@ -20,7 +20,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] AudioClip _confuseClip;
     [SerializeField] AudioClip _angryClip;
     [SerializeField] AudioClip _swordSwingClip;
-    AudioSource _audioSource;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioSource _alertSource;
 
     readonly int BLEND_HASH = Animator.StringToHash("MoveBlend");
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
@@ -130,7 +131,6 @@ public class EnemyAI : MonoBehaviour
             _navAgent.destination = transform.position;
             _canAttack = false;
             _audioSource.Stop();
-            _audioSource.spatialBlend = 1;
             _audioSource.PlayOneShot(_swordSwingClip);
             _characterAnimator.SetTrigger(ATTACK_HASH);
             StartCoroutine(AttackCooldownRoutine());
@@ -165,7 +165,6 @@ public class EnemyAI : MonoBehaviour
             _textAnimator.SetTrigger(CONFUSED_HASH);
             _characterAnimator.SetTrigger(CONFUSED_HASH);
             _audioSource.Stop();
-            _audioSource.spatialBlend = 1;
             _audioSource.PlayOneShot(_angryClip);
             _currentState = State.Searching;
         }
@@ -215,9 +214,8 @@ public class EnemyAI : MonoBehaviour
         if(_currentState != State.Attacking && _currentState != State.Chasing)
         {
             _audioSource.Stop();
-            _audioSource.spatialBlend = 0;
             _textAnimator.SetTrigger(AGGRO_HASH);
-            _audioSource.PlayOneShot(_alertClip);
+            _alertSource.PlayOneShot(_alertClip);
         }
         _aggroCooldown = 0f;
         _attackTarget = target;
@@ -230,7 +228,6 @@ public class EnemyAI : MonoBehaviour
     {
         _textAnimator.SetTrigger(CONFUSED_HASH);
         _audioSource.Stop();
-        _audioSource.spatialBlend = 1;
         _audioSource.PlayOneShot(_confuseClip);
 
         _aggroCooldown = 0f;
