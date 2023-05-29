@@ -47,7 +47,7 @@ public class OptionsMenu : MonoBehaviour
         _controls.Player.Options.performed += _ => ToggleMainMenuCanvas();
         EventSystem.current.SetSelectedGameObject(null);
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void MakeAvailable()
@@ -89,7 +89,7 @@ public class OptionsMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             _mainOptionsCanvas.enabled = false;
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = _currentTimescale;
             _freelookCamera.enabled = true;
             
