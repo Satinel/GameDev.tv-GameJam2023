@@ -14,6 +14,10 @@ public class Squisher : MonoBehaviour
     [SerializeField] Mover _mover;
     [SerializeField] Hider _hider;
     [SerializeField] CinemachineCollider _cineCollider;
+    [SerializeField] CutsceneManager _cutsceneManager;
+    [SerializeField] AudioClip _squishAudioClip;
+    [SerializeField] AudioClip _unSquishAudioClip;
+    AudioSource _audioSource;
     float _heightDefault;
     Vector3 _centerDefault;
     Vector3 _previousPosition;
@@ -39,6 +43,7 @@ public class Squisher : MonoBehaviour
     {
         _controls = new PlayerControls();
         _playerHealth = GetComponent<PlayerHealth>();
+        _audioSource = GetComponent<AudioSource>();
     }
     
     void OnEnable()
@@ -46,6 +51,11 @@ public class Squisher : MonoBehaviour
         _controls.Player.Enable();
         _playerHealth.OnPlayerHurt += ForceUnhide;
         _playerHealth.OnPlayerDefeat += DisableSquishing;
+        if(_cutsceneManager)
+        {
+            _cutsceneManager.OnCinematicPlayed += DisableAndUnsquish;
+            _cutsceneManager.OnCinematicFinished += EnableSquishing;
+        }
     }
 
     void OnDisable()
@@ -53,6 +63,11 @@ public class Squisher : MonoBehaviour
         _controls.Player.Disable();
         _playerHealth.OnPlayerHurt -= ForceUnhide;
         _playerHealth.OnPlayerDefeat -= DisableSquishing;
+        if(_cutsceneManager)
+        {
+            _cutsceneManager.OnCinematicPlayed -= DisableAndUnsquish;
+            _cutsceneManager.OnCinematicFinished -= EnableSquishing;
+        }
     }
 
     void Start()
@@ -113,7 +128,8 @@ public class Squisher : MonoBehaviour
         {
             _isSquishing = true;
             _routineDelta = 0f;
-            //TODO Play a sound here
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(_squishAudioClip);
             StartCoroutine(SideRoutine());
         }
     }
@@ -146,7 +162,8 @@ public class Squisher : MonoBehaviour
         {
             _isSquishing = true;
             _routineDelta = 0f;
-            //TODO Play a sound here
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(_squishAudioClip);
             StartCoroutine(HeightRoutine());
         }
     }
@@ -188,6 +205,8 @@ public class Squisher : MonoBehaviour
         }
         else
         {
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(_squishAudioClip);
             _isSquished = true;
             transform.localScale = new Vector3(1f, 1f, _squishAmount);
         }
@@ -197,7 +216,8 @@ public class Squisher : MonoBehaviour
     {
         if(_inTightSpace || _isHiding || Time.timeScale == 0) { return; }
 
-        //TODO play a POP! sort of sound
+        _audioSource.Stop();
+        _audioSource.PlayOneShot(_unSquishAudioClip);
 
         transform.localScale = Vector3.one;
         _charaCont.height = _heightDefault;
@@ -279,5 +299,19 @@ public class Squisher : MonoBehaviour
     void DisableSquishing()
     {
         _canSquish = false;
+    }
+
+    void DisableAndUnsquish()
+    {
+        StopAllCoroutines();
+        _inTightSpace = false;
+        _isHiding = false;
+        Unsquish();
+        _canSquish = false;
+    }
+
+    void EnableSquishing()
+    {
+        _canSquish = true;
     }
 }

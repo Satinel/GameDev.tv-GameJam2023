@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject _nextLevelButton;
     [SerializeField] TMP_Text _timerTextField;
     [SerializeField] TMP_Text _statsText;
+    [SerializeField] CutsceneManager _cutsceneManager;
 
     int _currentSceneIndex;
     float _completionTime;
@@ -43,6 +44,22 @@ public class LevelManager : MonoBehaviour
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         _image.fillClockwise = false;
 
+    }
+
+    void OnEnable()
+    {
+        if(_cutsceneManager)
+        {
+            _cutsceneManager.OnCinematicPlayed += PauseTimer;
+        }
+    }
+
+    void OnDisable()
+    {
+        if(_cutsceneManager)
+        {
+            _cutsceneManager.OnCinematicPlayed -= PauseTimer;
+        }
     }
 
     IEnumerator Start()
@@ -76,6 +93,11 @@ public class LevelManager : MonoBehaviour
         
         Time.timeScale = 1;
         _timerStarted = true;
+    }
+
+    void PauseTimer()
+    {
+        _timerStarted = false;
     }
 
     void StopTimer()
@@ -156,7 +178,6 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(ImageWipe());
         OnLevelCompleted?.Invoke();
         CurrentRunManager.Instance.SetTotalGuardsAlerted(_timesSeen);
-        //TODO play/change music??!
     }
 
     public void LoadNextLevel()

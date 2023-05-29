@@ -11,6 +11,8 @@ public class Lever : MonoBehaviour
     [SerializeField] float _rotationDuration = 1f;
     [SerializeField] LeverCutscene _cutscene;
     [SerializeField] bool _opensDoors;
+    [SerializeField] AudioClip _audioClip;
+    AudioSource _audioSource;
 
     MeshRenderer _renderer;
     bool _hasActivated = false;
@@ -24,6 +26,7 @@ public class Lever : MonoBehaviour
         _renderer = GetComponent<MeshRenderer>();
         _controls = new PlayerControls();
         _interactable = GetComponent<Interactable>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void OnDisable()
@@ -71,7 +74,7 @@ public class Lever : MonoBehaviour
         _hasActivated = true;
         _controls.Player.Disable();
         _renderer.material = _activateMaterial;
-        //TODO Play a sound!
+        _audioSource.PlayOneShot(_audioClip);
         _interactable._IsActive = false;
         
         if(_opensDoors)
@@ -79,6 +82,7 @@ public class Lever : MonoBehaviour
             foreach(Transform door in _doors)
             {
                 door.GetComponentInChildren<Animator>().SetTrigger(INTERACT_HASH);
+                door.GetComponentInChildren<AudioSource>().Play();
             }
             return;
         }
@@ -106,13 +110,14 @@ public class Lever : MonoBehaviour
 
     IEnumerator RaiseDoor(Transform door)
     {
-        //TODO Start another sound
+        AudioSource doorAudio = door.GetComponent<AudioSource>();
+        doorAudio.Play();
         while(door.localPosition.y < 4f)
         {
             door.localPosition += new Vector3(0f, 0.1f, 0f) * _moveSpeed * Time.deltaTime;
             yield return null;
         }
-        //TODO Stop that other sound
+        doorAudio.Stop();
     }
 
 }

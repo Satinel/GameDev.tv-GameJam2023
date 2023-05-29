@@ -15,7 +15,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] PatrolRoute _patrolRoute;
     [Min(1.1f)] [SerializeField] float _waypointRange;
     [SerializeField] Animator _characterAnimator;
-    [SerializeField] Animator _textAnimator; //TODO set this up
+    [SerializeField] Animator _textAnimator;
+    [SerializeField] AudioClip _alertClip;
+    [SerializeField] AudioClip _confuseClip;
+    [SerializeField] AudioClip _angryClip;
+    [SerializeField] AudioClip _swordSwingClip;
+    AudioSource _audioSource;
 
     readonly int BLEND_HASH = Animator.StringToHash("MoveBlend");
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
@@ -38,6 +43,7 @@ public class EnemyAI : MonoBehaviour
     {
         _navAgent = GetComponent<NavMeshAgent>();
         _characterAnimator = GetComponentInChildren<Animator>();
+        _audioSource = GetComponent<AudioSource>();
         _startPosition = transform.position;
         _startRotation = transform.rotation;
     }
@@ -123,6 +129,9 @@ public class EnemyAI : MonoBehaviour
         {
             _navAgent.destination = transform.position;
             _canAttack = false;
+            _audioSource.Stop();
+            _audioSource.spatialBlend = 1;
+            _audioSource.PlayOneShot(_swordSwingClip);
             _characterAnimator.SetTrigger(ATTACK_HASH);
             StartCoroutine(AttackCooldownRoutine());
         }
@@ -155,7 +164,9 @@ public class EnemyAI : MonoBehaviour
             _navAgent.destination = transform.position;
             _textAnimator.SetTrigger(CONFUSED_HASH);
             _characterAnimator.SetTrigger(CONFUSED_HASH);
-            //TODO play angry/confused noises SFX?
+            _audioSource.Stop();
+            _audioSource.spatialBlend = 1;
+            _audioSource.PlayOneShot(_angryClip);
             _currentState = State.Searching;
         }
 
@@ -203,8 +214,10 @@ public class EnemyAI : MonoBehaviour
     {
         if(_currentState != State.Attacking && _currentState != State.Chasing)
         {
+            _audioSource.Stop();
+            _audioSource.spatialBlend = 0;
             _textAnimator.SetTrigger(AGGRO_HASH);
-            //TODO play aggro SFX
+            _audioSource.PlayOneShot(_alertClip);
         }
         _aggroCooldown = 0f;
         _attackTarget = target;
@@ -216,7 +229,9 @@ public class EnemyAI : MonoBehaviour
     public void Chase(Vector3 lastSeen)
     {
         _textAnimator.SetTrigger(CONFUSED_HASH);
-        //TODO play confused SFX
+        _audioSource.Stop();
+        _audioSource.spatialBlend = 1;
+        _audioSource.PlayOneShot(_confuseClip);
 
         _aggroCooldown = 0f;
         _chaseCooldown = 0f;

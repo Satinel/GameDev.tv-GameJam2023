@@ -10,6 +10,9 @@ public class Mover : MonoBehaviour
     [SerializeField] float _rotationSpeed = 15f;
     [SerializeField] Canvas _interactCanvas;
     [SerializeField] LevelManager _levelManager;
+    [SerializeField] CutsceneManager _cutsceneManager;
+    [SerializeField] AudioClip _audioClip;
+    AudioSource _audioSource;
 
     Transform _mainCamera;
     float _verticalVelocity;
@@ -33,6 +36,7 @@ public class Mover : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _playerHealth = GetComponentInChildren<PlayerHealth>();
         _animator = GetComponentInChildren<Animator>();
+        _audioSource = GetComponent<AudioSource>();
         _runSpeed = _moveSpeed;
         _walkSpeed = _moveSpeed/2;
     }
@@ -42,6 +46,11 @@ public class Mover : MonoBehaviour
         _controls.Player.Enable();
         _playerHealth.OnPlayerDefeat += DisableControl;
         _levelManager.OnLevelCompleted += DisableControl;
+        if(_cutsceneManager)
+        {
+            _cutsceneManager.OnCinematicPlayed += DisableControl;
+            _cutsceneManager.OnCinematicFinished += EnableControl;
+        }
     }
 
     void OnDisable()
@@ -49,6 +58,11 @@ public class Mover : MonoBehaviour
         _controls.Player.Disable();
         _playerHealth.OnPlayerDefeat -= DisableControl;
         _levelManager.OnLevelCompleted -= DisableControl;
+        if(_cutsceneManager)
+        {
+            _cutsceneManager.OnCinematicPlayed += DisableControl;
+            _cutsceneManager.OnCinematicFinished += EnableControl;
+        }
     }
 
     void Start()
@@ -115,7 +129,14 @@ public class Mover : MonoBehaviour
 
     void DisableControl()
     {
+        _movementValue = Vector2.zero;
+        _animator.SetFloat(BLEND_HASH, 0);
         _isDisabled = true;
+    }
+
+    void EnableControl()
+    {
+        _isDisabled = false;
     }
 
     Vector3 CalculateMovement()
@@ -153,7 +174,8 @@ public class Mover : MonoBehaviour
 
     public void ShowInteractable()
     {
-        //TODO play notification sound if you have one
+        _audioSource.Stop();
+        _audioSource.PlayOneShot(_audioClip);
         _interactCanvas.enabled = true;
     }
 

@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float _wipeDelay = 0.5f;
     [SerializeField] GameObject _retryButton;
     [SerializeField] LevelManager _levelManager;
+    [SerializeField] AudioClip _hurtAudioClip;
+    AudioSource _audioSource;
     
     Animator _animator;
     [SerializeField] int _currentHealth;
@@ -33,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
     void Awake()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
         _currentHealth = _maxHealth;
     }
 
@@ -66,7 +69,8 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            //TODO play Hurt SFX
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(_hurtAudioClip);
             _blinkTime = 0;
             StartCoroutine(IFrames());
         }
@@ -112,7 +116,6 @@ public class PlayerHealth : MonoBehaviour
 
     void HandleDeath()
     {
-        //TODO play sad SFX/Music
         _animator.SetTrigger(DEATH_HASH);
         OnPlayerDefeat?.Invoke();
         _defeatCanvas.enabled = true;

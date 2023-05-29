@@ -8,12 +8,15 @@ public class ExitDoor : MonoBehaviour
     Animator _playerAnimator;
     Interactable _interactable;
     readonly int INTERACT_HASH = Animator.StringToHash("Interact");
+    AudioSource _audioSource;
+    [SerializeField] AudioClip _audioClip;
 
     void Awake()
     {
         _controls = new PlayerControls();
         _interactable = GetComponent<Interactable>();
         _myAnimator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void OnDisable()
@@ -55,7 +58,7 @@ public class ExitDoor : MonoBehaviour
         _myAnimator.SetTrigger(INTERACT_HASH);
         _hasActivated = true;
         _controls.Player.Disable();
-        //TODO Play a sound!
+        _audioSource.PlayOneShot(_audioClip);
         _interactable._IsActive = false;
     }
 }

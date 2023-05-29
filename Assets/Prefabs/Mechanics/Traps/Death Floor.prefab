@@ -76,6 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffba16bf353dba64b93167895be8ec07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lava: {fileID: 4080959556700769649}
+  _directionChangeDelay: 10
+  _positiveChangeAmount: 0.5
+  _negativeChangeAmount: 1.5
 --- !u!1 &4080959556700769654
 GameObject:
   m_ObjectHideFlags: 0
