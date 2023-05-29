@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2477338343563643660}
   - component: {fileID: 2836717945886516336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2x4DungeonWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DungeonWall1x4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400875327936878950, guid: 32ef24e07e9cd8c46abb6c6ec219210b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3125131563528679659, guid: 32ef24e07e9cd8c46abb6c6ec219210b,
         type: 3}

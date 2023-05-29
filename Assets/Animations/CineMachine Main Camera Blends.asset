@@ -16,7 +16,7 @@ MonoBehaviour:
   - m_From: CM FreeLook
     m_To: CutsceneCamera
     m_Blend:
-      m_Style: 4
+      m_Style: 0
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
   - m_From: CutsceneCamera
     m_To: CM FreeLook
     m_Blend:
-      m_Style: 0
+      m_Style: 3
       m_Time: 2
       m_CustomCurve:
         serializedVersion: 2

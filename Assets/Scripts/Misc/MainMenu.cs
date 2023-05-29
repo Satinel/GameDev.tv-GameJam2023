@@ -1,13 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] Canvas _mainOptionsCanvas;
     [SerializeField] Canvas _audioCanvas;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] GameObject _startButton;
+
+    void Start()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_startButton);
+    }
 
     public void StartGame()
     {
+        _audioSource.Stop();
         SceneManager.LoadScene(1);
     }
 
@@ -25,6 +35,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        _audioSource.Stop();
         Application.Quit();
     }
 }

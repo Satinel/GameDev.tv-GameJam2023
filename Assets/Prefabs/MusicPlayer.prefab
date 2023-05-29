@@ -48,6 +48,7 @@ MonoBehaviour:
   _levelSong: {fileID: 0}
   _victoryJingle: {fileID: 0}
   _defeatJingle: {fileID: 8300000, guid: 1807e1ba61237004ca0393c62fa9dcba, type: 3}
+  _introClip: {fileID: 0}
   _levelManager: {fileID: 0}
   _playerHealth: {fileID: 0}
 --- !u!82 &7224817987252470561
@@ -65,7 +66,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

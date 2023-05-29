@@ -31035,6 +31035,16 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7760834703647288457, guid: 5eff6b188422cf74eb8ab44f9e17716e,
+        type: 3}
+      propertyPath: _introClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 08b2e009cb8f2e04d9d318dbb1a44998, type: 3}
+    - target: {fileID: 7760834703647288457, guid: 5eff6b188422cf74eb8ab44f9e17716e,
+        type: 3}
+      propertyPath: _levelSong
+      value: 
+      objectReference: {fileID: 8300000, guid: 46fa0b46a1d89a942b501db3f71e05d0, type: 3}
     - target: {fileID: 8375937074429415452, guid: 5eff6b188422cf74eb8ab44f9e17716e,
         type: 3}
       propertyPath: m_fontSize

@@ -5,9 +5,11 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] AudioClip _levelSong;
     [SerializeField] AudioClip _victoryJingle;
     [SerializeField] AudioClip _defeatJingle;
+    [SerializeField] AudioClip _introClip;
     [SerializeField] LevelManager _levelManager;
     [SerializeField] PlayerHealth _playerHealth;
     AudioSource _audioSource;
+    bool _waitingForIntro = false;
 
     void Awake()
     {
@@ -36,18 +38,41 @@ public class MusicPlayer : MonoBehaviour
         _playerHealth.OnPlayerDefeat -= PlayDefeatMusic;
     }
 
-    void StartMusic()
+    void Update()
     {
-        if(_levelSong)
+        if(!_audioSource.isPlaying && _waitingForIntro)
         {
             _audioSource.loop = true;
-            _audioSource.PlayOneShot(_levelSong);
+            _audioSource.clip = _levelSong;
+            _audioSource.Play();
+            _waitingForIntro = false;
+        }
+
+    }
+
+    void StartMusic()
+    {
+        if(_introClip)
+        {
+            _audioSource.loop = false;
+            _audioSource.PlayOneShot(_introClip);
+            _waitingForIntro = true;
+        }
+        else if(_levelSong)
+        {
+            _audioSource.loop = true;
+            _audioSource.clip = _levelSong;
+            _audioSource.Play();
         }
     }
 
+
+
     void StopMusic()
     {
+        _waitingForIntro = false;
         _audioSource.Stop();
+        _audioSource.loop = false;
         if(_victoryJingle != null)
         {
             _audioSource.PlayOneShot(_victoryJingle);
@@ -56,6 +81,7 @@ public class MusicPlayer : MonoBehaviour
 
     void PlayDefeatMusic()
     {
+        _waitingForIntro = false;
         _audioSource.Stop();
         _audioSource.loop = false;
         if(_defeatJingle != null)

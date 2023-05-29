@@ -137,6 +137,8 @@ public class PlayerHealth : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(_retryButton);
         _mainMenuCanvas.enabled = true;
         Time.timeScale = 0f;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void UpdateCurrentRunHeartCount() // these method names are becoming unwieldly
