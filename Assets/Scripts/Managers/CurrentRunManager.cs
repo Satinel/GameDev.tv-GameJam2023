@@ -38,6 +38,14 @@ public class CurrentRunManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        if(Application.platform != RuntimePlatform.WebGLPlayer)
+        {
+            Application.targetFrameRate = Screen.currentResolution.refreshRate;
+        }
+    }
+
     public void SetCompletionTime(int levelIndex, float compTime)
     {
         // _completionTimes.Insert(levelIndex, compTime);

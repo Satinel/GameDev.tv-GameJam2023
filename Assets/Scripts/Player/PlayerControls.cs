@@ -282,7 +282,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""id"": ""40bf7b9d-b991-44d8-bd97-b8b9f1e2de42"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=30,y=30)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
