@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using Cinemachine;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] GameObject _audioFirstButton;
     [SerializeField] GameObject _optionsAlternateFirstButton;
     [SerializeField] LevelManager _levelManager;
+    [SerializeField] CinemachineFreeLook _freelookCamera;
     
     PlayerControls _controls;
     bool _playerDefeated = false;
@@ -89,6 +91,7 @@ public class OptionsMenu : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = _currentTimescale;
+            _freelookCamera.enabled = true;
             
         }
         else
@@ -98,6 +101,7 @@ public class OptionsMenu : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
+            _freelookCamera.enabled = false;
             EventSystem.current.SetSelectedGameObject(null);
             if(_playerDefeated)
             {

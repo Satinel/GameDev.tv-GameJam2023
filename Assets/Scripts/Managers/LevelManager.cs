@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 using System.Collections.Generic;
+using Cinemachine;
 
 public class LevelManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TMP_Text _timerTextField;
     [SerializeField] TMP_Text _statsText;
     [SerializeField] CutsceneManager _cutsceneManager;
+    [SerializeField] CinemachineFreeLook _freelookCamera;
 
     int _currentSceneIndex;
     float _completionTime;
@@ -43,6 +45,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         _image.fillClockwise = false;
+        _freelookCamera.enabled = false;
 
     }
 
@@ -71,7 +74,7 @@ public class LevelManager : MonoBehaviour
             _image.fillAmount -= _unWipeSpeed * Time.unscaledDeltaTime;
             yield return null;
         }
-        
+        _freelookCamera.enabled = true;
         StartTimer();
         OnLevelStarted?.Invoke();
     }
@@ -135,8 +138,8 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < times.Count; i++)
         {
             string formattedTime = FormatTime(times[i]);
-            timeStats += $"\nLevel {i}: {formattedTime}";
-            _copyStats += $"\nLevel {i}: {PlainTextFormatTime(times[i])}";
+            timeStats += $"\nLevel {i+1}: {formattedTime}";
+            _copyStats += $"\nLevel {i+1}: {PlainTextFormatTime(times[i])}";
             totalTime += times[i];
         }
         timeStats += $"\nTotal Time: {FormatTime(totalTime)}";
@@ -175,6 +178,7 @@ public class LevelManager : MonoBehaviour
     public void LevelCompleted()
     {
         StopTimer();
+        _freelookCamera.enabled = false;
         StartCoroutine(ImageWipe());
         OnLevelCompleted?.Invoke();
         CurrentRunManager.Instance.SetTotalGuardsAlerted(_timesSeen);

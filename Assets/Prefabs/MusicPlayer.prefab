@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelSong: {fileID: 0}
-  _victoryJingle: {fileID: 0}
+  _victoryJingle: {fileID: 8300000, guid: cd61c8ff18694a9478ab613493333dd1, type: 3}
   _defeatJingle: {fileID: 8300000, guid: 1807e1ba61237004ca0393c62fa9dcba, type: 3}
   _introClip: {fileID: 0}
   _levelManager: {fileID: 0}

@@ -17,6 +17,7 @@ public class Squisher : MonoBehaviour
     [SerializeField] CutsceneManager _cutsceneManager;
     [SerializeField] AudioClip _squishAudioClip;
     [SerializeField] AudioClip _unSquishAudioClip;
+    [SerializeField] Canvas _canSquishCanvas;
     AudioSource _audioSource;
     float _heightDefault;
     Vector3 _centerDefault;
@@ -104,6 +105,18 @@ public class Squisher : MonoBehaviour
         else if(other.CompareTag(_tunnel))
         {
             _inTightSpace = false;
+        }
+    }
+
+    void Update()
+    {
+        if(_inTightSpace && _isSquished)
+        {
+            _canSquishCanvas.enabled = true;
+        }
+        else
+        {
+            _canSquishCanvas.enabled = false;
         }
     }
 

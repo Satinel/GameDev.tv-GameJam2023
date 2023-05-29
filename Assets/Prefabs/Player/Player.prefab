@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &1283420617512544208
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.04240513, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1350,6 +1350,16 @@ PrefabInstance:
       propertyPath: _charaCont
       value: 
       objectReference: {fileID: 2093288778}
+    - target: {fileID: 8284264229866798000, guid: 96ee72604cd9af44b84cf84ea091d7af,
+        type: 3}
+      propertyPath: _canSquishCanvas
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284264229866798000, guid: 96ee72604cd9af44b84cf84ea091d7af,
+        type: 3}
+      propertyPath: _canvasTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8295266634566143114, guid: 96ee72604cd9af44b84cf84ea091d7af,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

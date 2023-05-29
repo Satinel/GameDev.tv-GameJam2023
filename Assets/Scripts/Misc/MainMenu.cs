@@ -6,8 +6,11 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Canvas _mainOptionsCanvas;
     [SerializeField] Canvas _audioCanvas;
+    [SerializeField] Canvas _creditsCanvas;
     [SerializeField] AudioSource _audioSource;
     [SerializeField] GameObject _startButton;
+    [SerializeField] GameObject _audioMenuButton;
+    [SerializeField] GameObject _creditsMenuButton;
 
     void Start()
     {
@@ -23,13 +26,33 @@ public class MainMenu : MonoBehaviour
 
     public void ToggleAudioCanvas()
     {
-        if(_audioCanvas)
+        if(_audioCanvas.enabled)
         {
-            _audioCanvas.enabled = !_audioCanvas.enabled;
+            _audioCanvas.enabled = false;
+            _mainOptionsCanvas.enabled = true;
+            EventSystem.current.SetSelectedGameObject(_startButton);
         }
-        if(_mainOptionsCanvas)
+        else
         {
-            _mainOptionsCanvas.enabled = !_mainOptionsCanvas.enabled;
+            _mainOptionsCanvas.enabled = false;
+            _audioCanvas.enabled = true;
+            EventSystem.current.SetSelectedGameObject(_audioMenuButton);
+        }
+    }
+
+    public void ToggleCreditsCanvas()
+    {
+        if(_creditsCanvas.enabled)
+        {
+            _creditsCanvas.enabled = false;
+            _mainOptionsCanvas.enabled = true;
+            EventSystem.current.SetSelectedGameObject(_startButton);
+        }
+        else
+        {
+            _mainOptionsCanvas.enabled = false;
+            _creditsCanvas.enabled = true;
+            EventSystem.current.SetSelectedGameObject(_creditsMenuButton);
         }
     }
 

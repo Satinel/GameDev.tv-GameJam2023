@@ -1186,6 +1186,7 @@ MonoBehaviour:
   _cutsceneManager: {fileID: 0}
   _squishAudioClip: {fileID: 8300000, guid: 0aeffb2ebce270b49a8bca96d7045834, type: 3}
   _unSquishAudioClip: {fileID: 8300000, guid: 23a4c72deb9029c4dbe91dd2276f2dc9, type: 3}
+  _canSquishCanvas: {fileID: 0}
 --- !u!114 &7249637272445932026
 MonoBehaviour:
   m_ObjectHideFlags: 0

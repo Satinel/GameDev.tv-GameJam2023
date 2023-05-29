@@ -11,7 +11,6 @@ public class MenuSquish : MonoBehaviour
     
     bool _isSquished = false;
     bool _isSquishing = false;
-    bool _inTightSpace = false;
     bool _isHiding = false;
     bool _canSquish = true;
     float _routineDelta = 0f;
@@ -39,9 +38,8 @@ public class MenuSquish : MonoBehaviour
         }
         else
         {
-            _isSquishing = true;
-            _routineDelta = 0f;
-            StartCoroutine(SideRoutine());
+            transform.localScale = new Vector3(_squishAmount, 1f, 1f);
+            _isSquished = true;
         }
     }
 
