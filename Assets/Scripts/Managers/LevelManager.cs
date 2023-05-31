@@ -126,7 +126,10 @@ public class LevelManager : MonoBehaviour
         _statCanvas.enabled = true;
         Time.timeScale = 0f;
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        if(Application.platform != RuntimePlatform.WebGLPlayer)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     void UpdateStats()
