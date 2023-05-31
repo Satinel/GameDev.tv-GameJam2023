@@ -725,7 +725,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853591355007284559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdecfec57d863ba42978f6d764bb75b7, type: 3}
   m_Name: 
@@ -1190,7 +1190,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4940382363419312726}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1310,9 +1310,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hi this is debug info I tried to solve a mouse problem with, but the problem
-    seems to have disappeared somehow? Pushing ` will hide this again (and toggle
-    off walking mode which has no use in the game currently.)
+  m_text: Hi you shouldn't ever see this, but if you do try pushing ` to hide it
+    again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ef1454c738b86f4991e51d844516556, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 4ef1454c738b86f4991e51d844516556, type: 2}
