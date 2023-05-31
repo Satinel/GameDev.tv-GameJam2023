@@ -46,11 +46,8 @@ public class OptionsMenu : MonoBehaviour
     {
         _controls.Player.Options.performed += _ => ToggleMainMenuCanvas();
         EventSystem.current.SetSelectedGameObject(null);
-        if(Application.platform != RuntimePlatform.WebGLPlayer)
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void MakeAvailable()
@@ -91,11 +88,8 @@ public class OptionsMenu : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(null);
             _mainOptionsCanvas.enabled = false;
-            if(Application.platform != RuntimePlatform.WebGLPlayer)
-            {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = _currentTimescale;
             _freelookCamera.enabled = true;
             
@@ -105,10 +99,7 @@ public class OptionsMenu : MonoBehaviour
             _currentTimescale = Time.timeScale;
             _mainOptionsCanvas.enabled = true;
             Cursor.visible = true;
-            if(Application.platform != RuntimePlatform.WebGLPlayer)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             _freelookCamera.enabled = false;
             EventSystem.current.SetSelectedGameObject(null);

@@ -46,7 +46,8 @@ public class LevelManager : MonoBehaviour
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         _image.fillClockwise = false;
         _freelookCamera.enabled = false;
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void OnEnable()
@@ -126,10 +127,7 @@ public class LevelManager : MonoBehaviour
         _statCanvas.enabled = true;
         Time.timeScale = 0f;
         Cursor.visible = true;
-        if(Application.platform != RuntimePlatform.WebGLPlayer)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void UpdateStats()

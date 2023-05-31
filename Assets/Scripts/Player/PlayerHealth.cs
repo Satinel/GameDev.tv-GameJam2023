@@ -138,10 +138,7 @@ public class PlayerHealth : MonoBehaviour
         _mainMenuCanvas.enabled = true;
         Time.timeScale = 0f;
         Cursor.visible = true;
-        if(Application.platform != RuntimePlatform.WebGLPlayer)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void UpdateCurrentRunHeartCount() // these method names are becoming unwieldly

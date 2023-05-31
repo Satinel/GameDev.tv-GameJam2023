@@ -20,10 +20,6 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        if(Application.platform != RuntimePlatform.WebGLPlayer)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
         _audioSource.Stop();
         SceneManager.LoadScene(1);
     }
