@@ -148,7 +148,7 @@ public class LevelManager : MonoBehaviour
         // if(_heartWasCollected)
         // {
             _totalStats = $"Collected Hearts: {CurrentRunManager.Instance.CollectedHearts}/{_currentSceneIndex}\nGuards Alerted: {_timesSeen}\nTotal Guards Alerted: {CurrentRunManager.Instance.AlertedGuards}\n{timeStats}";
-            _totalStats = $"Collected Hearts: {CurrentRunManager.Instance.CollectedHearts}/{_currentSceneIndex}\nGuards Alerted: {_timesSeen}\nTotal Guards Alerted: {CurrentRunManager.Instance.AlertedGuards}\n{_copyStats}";
+            _copyStats = $"Collected Hearts: {CurrentRunManager.Instance.CollectedHearts}/{_currentSceneIndex}\nGuards Alerted: {_timesSeen}\nTotal Guards Alerted: {CurrentRunManager.Instance.AlertedGuards}\n{_copyStats}";
         // }
         // else
         // {
