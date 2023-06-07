@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7431425030764739415}
   - component: {fileID: 7431425030764739414}
   - component: {fileID: 6308893935149561238}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FallenCrateStack
   m_TagString: TightSpace
   m_Icon: {fileID: 0}
@@ -51,8 +51,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.0614805, y: 4.1419764, z: 4.209573}
-  m_Center: {x: 0.8802662, y: 2.0002198, z: -0.66048867}
+  m_Size: {x: 7.0236745, y: 4.1419764, z: 4.2988987}
+  m_Center: {x: 0.69734025, y: 2.0002198, z: -0.7051591}
 --- !u!54 &6308893935149561238
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -549,17 +549,17 @@ PrefabInstance:
     - target: {fileID: 6513978101775641827, guid: e821878a13ef4724a9e5dc936db31b79,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4631357
+      value: 0.546
       objectReference: {fileID: 0}
     - target: {fileID: 6513978101775641827, guid: e821878a13ef4724a9e5dc936db31b79,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.32735825
+      value: 1.619
       objectReference: {fileID: 0}
     - target: {fileID: 6513978101775641827, guid: e821878a13ef4724a9e5dc936db31b79,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8714769
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6513978101775641827, guid: e821878a13ef4724a9e5dc936db31b79,
         type: 3}

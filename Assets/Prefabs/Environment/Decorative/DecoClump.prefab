@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1541817609120878780}
-  - component: {fileID: 3297776408548279909}
   - component: {fileID: 3203944514626442634}
-  m_Layer: 6
+  - component: {fileID: 3297776408548279909}
+  m_Layer: 0
   m_Name: DecoClump
   m_TagString: TightSpace
   m_Icon: {fileID: 0}
@@ -37,6 +37,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3203944514626442634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818466183135657854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6719658, y: 1.5573215, z: 2.4309616}
+  m_Center: {x: -0.120502114, y: 0.7531378, z: 0.09037638}
 --- !u!54 &3297776408548279909
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53,19 +66,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &3203944514626442634
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818466183135657854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.6719658, y: 1.5573215, z: 2.4309616}
-  m_Center: {x: -0.120502114, y: 0.7531378, z: 0.09037638}
 --- !u!1001 &979614428320434213
 PrefabInstance:
   m_ObjectHideFlags: 0

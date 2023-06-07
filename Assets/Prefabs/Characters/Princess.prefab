@@ -1004,6 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mats: []
   _defaultMaterials:
   - {fileID: 2100000, guid: 87f39f8bfca2c204ea3b0b06af7ca9ed, type: 2}
   - {fileID: 2100000, guid: 8869eaa770a175f4da7aed73939f2b8f, type: 2}
@@ -1676,6 +1677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mats: []
   _defaultMaterials:
   - {fileID: 2100000, guid: f8ea52610ca240e42be1218549cd8e05, type: 2}
   - {fileID: 2100000, guid: a5ac4b153d7be9c469f3cbcabf79547b, type: 2}
@@ -2423,6 +2425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mats: []
   _defaultMaterials:
   - {fileID: 2100000, guid: 68a285869b5a6a6408296bfd9bf66e71, type: 2}
   - {fileID: 2100000, guid: f8ea52610ca240e42be1218549cd8e05, type: 2}
@@ -2661,6 +2664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mats: []
   _defaultMaterials:
   - {fileID: 2100000, guid: 7f68dbc9185514b41b5a1e556cbed61d, type: 2}
   - {fileID: 2100000, guid: b8d4e1a068c59e44f84e62c7961f999d, type: 2}
@@ -2925,6 +2929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mats: []
   _defaultMaterials:
   - {fileID: -905690159841262435, guid: 75e37d10f1771a74fb40c8991da0c9bc, type: 3}
   _squishedMaterials:
