@@ -853,6 +853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1752509579232002869}
   - component: {fileID: 5831053633479617629}
+  - component: {fileID: 6654156485310355288}
   m_Layer: 0
   m_Name: Medieval_Feet
   m_TagString: Untagged
@@ -991,6 +992,27 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00084619626, y: 0.002182792, z: 0.00042467867}
     m_Extent: {x: 0.002028866, y: 0.0024965894, z: 0.003290132}
   m_DirtyAABB: 0
+--- !u!114 &6654156485310355288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968464025356052400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterials:
+  - {fileID: 2100000, guid: 87f39f8bfca2c204ea3b0b06af7ca9ed, type: 2}
+  - {fileID: 2100000, guid: 8869eaa770a175f4da7aed73939f2b8f, type: 2}
+  _squishedMaterials:
+  - {fileID: 2100000, guid: 0f0944f5a208b8647b862c70c3b6436c, type: 2}
+  - {fileID: 2100000, guid: 64749a61c1011484795a0e01e72ea24a, type: 2}
+  _renderer: {fileID: 5831053633479617629}
+  _skinless: 0
+  _altRenderer: {fileID: 0}
 --- !u!1 &3014602838968834115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,6 +1209,12 @@ MonoBehaviour:
   _squishAudioClip: {fileID: 8300000, guid: 0aeffb2ebce270b49a8bca96d7045834, type: 3}
   _unSquishAudioClip: {fileID: 8300000, guid: 23a4c72deb9029c4dbe91dd2276f2dc9, type: 3}
   _canSquishCanvas: {fileID: 0}
+  _swappers:
+  - {fileID: 5594767513607652351}
+  - {fileID: 1553839552621502034}
+  - {fileID: 3162972149585539663}
+  - {fileID: 6654156485310355288}
+  - {fileID: 1052235172543295541}
 --- !u!114 &7249637272445932026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,6 +1524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3282206154365709173}
   - component: {fileID: 5277621137736661315}
+  - component: {fileID: 5594767513607652351}
   m_Layer: 0
   m_Name: Formal_Head
   m_TagString: Untagged
@@ -1635,6 +1664,29 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00013350649, y: 0.016426872, z: 0.00035021087}
     m_Extent: {x: 0.0012140094, y: 0.0018180762, z: 0.0018170029}
   m_DirtyAABB: 0
+--- !u!114 &5594767513607652351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783939241287677473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterials:
+  - {fileID: 2100000, guid: f8ea52610ca240e42be1218549cd8e05, type: 2}
+  - {fileID: 2100000, guid: a5ac4b153d7be9c469f3cbcabf79547b, type: 2}
+  - {fileID: 2100000, guid: e424056a2d9c2aa4a81b657da7432e91, type: 2}
+  _squishedMaterials:
+  - {fileID: 2100000, guid: 959a2d445bed3724993392f5db27f6ba, type: 2}
+  - {fileID: 2100000, guid: 0768f1ca93853d846bcc62efaf55175b, type: 2}
+  - {fileID: 2100000, guid: 4c39b45bd7951a345be20dbad82be799, type: 2}
+  _renderer: {fileID: 5277621137736661315}
+  _skinless: 0
+  _altRenderer: {fileID: 0}
 --- !u!1 &3878716905436632643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,6 +2270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2893083887819798688}
   - component: {fileID: 2821139448087362289}
+  - component: {fileID: 1553839552621502034}
   m_Layer: 0
   m_Name: Witch_Body
   m_TagString: Untagged
@@ -2358,6 +2411,31 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00030273153, y: 0.01163545, z: 0.00026101526}
     m_Extent: {x: 0.0031998702, y: 0.0043891678, z: 0.0020694626}
   m_DirtyAABB: 0
+--- !u!114 &1553839552621502034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845068499778312892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterials:
+  - {fileID: 2100000, guid: 68a285869b5a6a6408296bfd9bf66e71, type: 2}
+  - {fileID: 2100000, guid: f8ea52610ca240e42be1218549cd8e05, type: 2}
+  - {fileID: 2100000, guid: b8d4e1a068c59e44f84e62c7961f999d, type: 2}
+  - {fileID: 2100000, guid: 8b1701620aa50164fb8ace7a75a38718, type: 2}
+  _squishedMaterials:
+  - {fileID: 2100000, guid: ffa4477911d06864cb5429b0df0b4d6b, type: 2}
+  - {fileID: 2100000, guid: 959a2d445bed3724993392f5db27f6ba, type: 2}
+  - {fileID: 2100000, guid: ff9fe1a2be9abad408557f12829b4047, type: 2}
+  - {fileID: 2100000, guid: 70604cb1e92f73a49bc87c0a5a148502, type: 2}
+  _renderer: {fileID: 2821139448087362289}
+  _skinless: 0
+  _altRenderer: {fileID: 0}
 --- !u!1 &5903647413841731421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8914630214705620630}
   - component: {fileID: 6933561405387997864}
+  - component: {fileID: 3162972149585539663}
   m_Layer: 0
   m_Name: Witch_Legs
   m_TagString: Untagged
@@ -2570,6 +2649,29 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0004818139, y: 0.0073494604, z: 0.00040539354}
     m_Extent: {x: 0.0035986935, y: 0.0042563705, z: 0.0037052906}
   m_DirtyAABB: 0
+--- !u!114 &3162972149585539663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6121298316563084301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterials:
+  - {fileID: 2100000, guid: 7f68dbc9185514b41b5a1e556cbed61d, type: 2}
+  - {fileID: 2100000, guid: b8d4e1a068c59e44f84e62c7961f999d, type: 2}
+  - {fileID: 2100000, guid: 68a285869b5a6a6408296bfd9bf66e71, type: 2}
+  _squishedMaterials:
+  - {fileID: 2100000, guid: 6072a89bdb1ed834aa685bdae2463d12, type: 2}
+  - {fileID: 2100000, guid: ff9fe1a2be9abad408557f12829b4047, type: 2}
+  - {fileID: 2100000, guid: ffa4477911d06864cb5429b0df0b4d6b, type: 2}
+  _renderer: {fileID: 6933561405387997864}
+  _skinless: 0
+  _altRenderer: {fileID: 0}
 --- !u!1 &6331979800346739808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,6 +2840,7 @@ GameObject:
   - component: {fileID: 5903649298261453587}
   - component: {fileID: 7368489698518672566}
   - component: {fileID: 4730702786264846460}
+  - component: {fileID: 1052235172543295541}
   m_Layer: 0
   m_Name: Crown
   m_TagString: Untagged
@@ -2810,6 +2913,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1052235172543295541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6531953864653664681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff577422d3458a4798f40bc9c65d186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterials:
+  - {fileID: -905690159841262435, guid: 75e37d10f1771a74fb40c8991da0c9bc, type: 3}
+  _squishedMaterials:
+  - {fileID: 2100000, guid: ff9fe1a2be9abad408557f12829b4047, type: 2}
+  _renderer: {fileID: 0}
+  _skinless: 1
+  _altRenderer: {fileID: 4730702786264846460}
 --- !u!1 &6704224301528823408
 GameObject:
   m_ObjectHideFlags: 0

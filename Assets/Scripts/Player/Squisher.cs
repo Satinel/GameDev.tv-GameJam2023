@@ -18,6 +18,7 @@ public class Squisher : MonoBehaviour
     [SerializeField] AudioClip _squishAudioClip;
     [SerializeField] AudioClip _unSquishAudioClip;
     [SerializeField] Canvas _canSquishCanvas;
+    [SerializeField] MaterialSwapper[] _swappers;
     AudioSource _audioSource;
     float _heightDefault;
     Vector3 _centerDefault;
@@ -160,6 +161,11 @@ public class Squisher : MonoBehaviour
         transform.localScale = new Vector3(_squishAmount, 1f, 1f);
         _charaCont.radius *= _radiusSideSquishAmount;
         _charaCont.center = new Vector3(_centerDefault.x, _centerDefault.y, _zCenterOffset);
+        
+        foreach (MaterialSwapper swapper in _swappers)
+        {
+            swapper.SwapMaterials();
+        }
     }
 
     void VerticalSquish()
@@ -205,6 +211,11 @@ public class Squisher : MonoBehaviour
         _charaCont.height *= _squishAmount;
         _charaCont.center = new Vector3(_centerDefault.x, _yCenteredSquishAmount, _centerDefault.z);
         _charaCont.radius = _radiusVertSquishAmount;
+        
+        foreach (MaterialSwapper swapper in _swappers)
+        {
+            swapper.SwapMaterials();
+        }
     }
 
     void FrontSquish()
@@ -223,6 +234,11 @@ public class Squisher : MonoBehaviour
             _isSquished = true;
             transform.localScale = new Vector3(1f, 1f, _squishAmount);
         }
+
+        foreach (MaterialSwapper swapper in _swappers)
+        {
+            swapper.SwapMaterials();
+        }
     }
 
     void Unsquish()
@@ -239,6 +255,11 @@ public class Squisher : MonoBehaviour
         _charaCont.stepOffset = _stepOffsetDefault;
         _isSquished = false;
         _cineCollider.enabled = true;
+
+        foreach (MaterialSwapper swapper in _swappers)
+        {
+            swapper.UnswapMaterials();
+        }
     }
 
     public void HideInPainting(Transform painting, GameObject camera)
