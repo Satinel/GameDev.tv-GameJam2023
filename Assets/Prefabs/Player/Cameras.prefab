@@ -543,6 +543,7 @@ GameObject:
   - component: {fileID: 4853591355007284563}
   - component: {fileID: 4853591355007284560}
   - component: {fileID: 751921986185114127}
+  - component: {fileID: 4881905507850612390}
   m_Layer: 0
   m_Name: CM FreeLook
   m_TagString: Untagged
@@ -734,6 +735,20 @@ MonoBehaviour:
   _xDisplay: {fileID: 8465104664166064320}
   _yDisplay: {fileID: 2652051235516938314}
   _debugCanvas: {fileID: 8558925880813248769}
+--- !u!114 &4881905507850612390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4853591355007284559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8debaed1b1498fd41be3cf9c2410eef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 4853591355007284558}
+  _slider: {fileID: 0}
 --- !u!1 &4853591355144295065
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,8 +903,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853591355842153766}
-  m_LocalRotation: {x: 0.06433938, y: 0.0000000042926818, z: -2.7676195e-10, w: 0.9979281}
-  m_LocalPosition: {x: 0, y: 2, z: -4.5}
+  m_LocalRotation: {x: 0.14217503, y: -0.69266605, z: 0.14217503, w: 0.69266605}
+  m_LocalPosition: {x: -5, y: 3.02655, z: 13.889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1159,7 +1174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7322563697127098574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1190,7 +1205,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4940382363419312726}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1310,8 +1325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hi you shouldn't ever see this, but if you do try pushing ` to hide it
-    again
+  m_text: Push ` to hide this
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ef1454c738b86f4991e51d844516556, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 4ef1454c738b86f4991e51d844516556, type: 2}
@@ -1338,7 +1352,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.6
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

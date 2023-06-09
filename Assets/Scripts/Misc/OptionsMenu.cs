@@ -7,11 +7,13 @@ public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] Canvas _mainOptionsCanvas;
     [SerializeField] Canvas _audioCanvas;
+    [SerializeField] Canvas _freelookCanvas;
     [SerializeField] GameObject _resumeButton;
     [SerializeField] GameObject _menuPanel;
     [SerializeField] PlayerHealth _playerHealth;
     [SerializeField] GameObject _optionsFirstButton;
     [SerializeField] GameObject _audioFirstButton;
+    [SerializeField] GameObject _freelookFirstButton;
     [SerializeField] GameObject _optionsAlternateFirstButton;
     [SerializeField] LevelManager _levelManager;
     [SerializeField] CinemachineFreeLook _freelookCamera;
@@ -75,6 +77,18 @@ public class OptionsMenu : MonoBehaviour
         if(_audioCanvas.enabled)
         {
             ToggleAudioCanvas();
+            if(_playerDefeated)
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsAlternateFirstButton);
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsFirstButton);
+            }
+        }
+        if(_freelookCanvas.enabled)
+        {
+            ToggleFreelookCanvas();
             if(_playerDefeated)
             {
                 EventSystem.current.SetSelectedGameObject(_optionsAlternateFirstButton);
@@ -148,6 +162,29 @@ public class OptionsMenu : MonoBehaviour
             _audioCanvas.enabled = true;
             _mainOptionsCanvas.enabled = false;
             EventSystem.current.SetSelectedGameObject(_audioFirstButton);
+        }
+    }
+
+    public void ToggleFreelookCanvas()
+    {
+        if(_freelookCanvas.enabled)
+        {
+            _freelookCanvas.enabled = false;
+            _mainOptionsCanvas.enabled = true;
+            if(_playerDefeated)
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsAlternateFirstButton);
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(_optionsFirstButton);
+            }
+        }
+        else
+        {
+            _freelookCanvas.enabled = true;
+            _mainOptionsCanvas.enabled = false;
+            EventSystem.current.SetSelectedGameObject(_freelookFirstButton);
         }
     }
 
