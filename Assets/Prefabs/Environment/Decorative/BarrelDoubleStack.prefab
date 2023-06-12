@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 8853708998242364756}
   m_Layer: 0
   m_Name: BarrelDoubleStack
-  m_TagString: TightSpace
+  m_TagString: Tunnel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
