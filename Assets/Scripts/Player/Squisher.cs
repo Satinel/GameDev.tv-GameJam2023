@@ -96,6 +96,19 @@ public class Squisher : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag(_tightSpace))
+        {
+            _inTightSpace = true;
+            _cineCollider.enabled = false;
+        }
+        else if(other.CompareTag(_tunnel))
+        {
+            _inTightSpace = true;
+        }
+    }
+
     void OnTriggerExit(Collider other)
     {
         if(other.CompareTag(_tightSpace))
