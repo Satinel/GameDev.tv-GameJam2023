@@ -1648,7 +1648,7 @@ MonoBehaviour:
   _attackRange: 2.5
   _attackDelay: 2
   _chaseDuration: 7
-  _searchDuration: 10
+  _searchDuration: 1.25
   _patrolRoute: {fileID: 0}
   _waypointRange: 1.1
   _characterAnimator: {fileID: 310136831248132481}
