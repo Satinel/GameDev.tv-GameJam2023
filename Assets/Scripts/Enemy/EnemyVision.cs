@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.com/watch?v=j1-OyLo77ss for this one!

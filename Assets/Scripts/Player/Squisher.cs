@@ -14,11 +14,15 @@ public class Squisher : MonoBehaviour
     [SerializeField] Mover _mover;
     [SerializeField] Hider _hider;
     [SerializeField] CinemachineCollider _cineCollider;
+    [SerializeField] CinemachineFreeLook _camera;
     [SerializeField] CutsceneManager _cutsceneManager;
     [SerializeField] AudioClip _squishAudioClip;
     [SerializeField] AudioClip _unSquishAudioClip;
     [SerializeField] Canvas _canSquishCanvas;
     [SerializeField] MaterialSwapper[] _swappers;
+    [SerializeField] Transform _defaultCamFocus;
+    // [SerializeField] Transform _xSquishCamFocus;
+    [SerializeField] Transform _ySquishCamFocus;
     AudioSource _audioSource;
     float _heightDefault;
     Vector3 _centerDefault;
@@ -88,7 +92,7 @@ public class Squisher : MonoBehaviour
         if(other.CompareTag(_tightSpace))
         {
             _inTightSpace = true;
-            _cineCollider.enabled = false;
+            // _cineCollider.enabled = false;
         }
         else if(other.CompareTag(_tunnel))
         {
@@ -101,7 +105,7 @@ public class Squisher : MonoBehaviour
         if(other.CompareTag(_tightSpace))
         {
             _inTightSpace = true;
-            _cineCollider.enabled = false;
+            // _cineCollider.enabled = false;
         }
         else if(other.CompareTag(_tunnel))
         {
@@ -114,7 +118,7 @@ public class Squisher : MonoBehaviour
         if(other.CompareTag(_tightSpace))
         {
             _inTightSpace = false;
-            Invoke("EnableCineCollider", 1f);
+            // Invoke("EnableCineCollider", 1f);
         }
         else if(other.CompareTag(_tunnel))
         {
@@ -158,6 +162,7 @@ public class Squisher : MonoBehaviour
             _audioSource.Stop();
             _audioSource.PlayOneShot(_squishAudioClip);
             StartCoroutine(SideRoutine());
+            // _camera.LookAt = _xSquishCamFocus;
         }
     }
 
@@ -197,6 +202,7 @@ public class Squisher : MonoBehaviour
             _audioSource.Stop();
             _audioSource.PlayOneShot(_squishAudioClip);
             StartCoroutine(HeightRoutine());
+            _camera.LookAt = _ySquishCamFocus;
         }
     }
 
@@ -266,8 +272,9 @@ public class Squisher : MonoBehaviour
         _charaCont.center = _centerDefault;
         _charaCont.radius = _radiusDefault;
         _charaCont.stepOffset = _stepOffsetDefault;
+        _camera.LookAt = _defaultCamFocus;
         _isSquished = false;
-        _cineCollider.enabled = true;
+        // _cineCollider.enabled = true;
 
         foreach (MaterialSwapper swapper in _swappers)
         {

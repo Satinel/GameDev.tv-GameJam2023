@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &113890421323226782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9167897895215001255}
+  m_Layer: 0
+  m_Name: Y Squish Cam Focus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9167897895215001255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113890421323226782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.5, z: -0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1669927826325936531}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163000237374532734
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +128,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isReversed: 0
+--- !u!1 &1974671080344092518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5634373843089932758}
+  m_Layer: 0
+  m_Name: Default Cam Focus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5634373843089932758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974671080344092518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.5, z: -0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1669927826325936531}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4055321563273211779
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +328,8 @@ Transform:
   m_Children:
   - {fileID: 3373824594493708778}
   - {fileID: 8875192074758424681}
+  - {fileID: 5634373843089932758}
+  - {fileID: 9167897895215001255}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1360,6 +1424,16 @@ PrefabInstance:
       propertyPath: _canvasTransform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8284264229866798000, guid: 96ee72604cd9af44b84cf84ea091d7af,
+        type: 3}
+      propertyPath: _defaultCamFocus
+      value: 
+      objectReference: {fileID: 5634373843089932758}
+    - target: {fileID: 8284264229866798000, guid: 96ee72604cd9af44b84cf84ea091d7af,
+        type: 3}
+      propertyPath: _ySquishCamFocus
+      value: 
+      objectReference: {fileID: 9167897895215001255}
     - target: {fileID: 8295266634566143114, guid: 96ee72604cd9af44b84cf84ea091d7af,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

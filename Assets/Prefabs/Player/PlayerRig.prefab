@@ -182,7 +182,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 3502687928032498516}
+      objectReference: {fileID: 6227161471546289876}
     - target: {fileID: 4853591355007284558, guid: 22bd186cf2c530b489ad9b1002e0e850,
         type: 3}
       propertyPath: m_XAxis.Value
@@ -645,6 +645,11 @@ PrefabInstance:
       objectReference: {fileID: 6032054379276932921}
     - target: {fileID: 8729206672072648043, guid: 823a7e236e71fd24b87d1cd5f5064df2,
         type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 5216345509157479477}
+    - target: {fileID: 8729206672072648043, guid: 823a7e236e71fd24b87d1cd5f5064df2,
+        type: 3}
       propertyPath: _canSquishCanvas
       value: 
       objectReference: {fileID: 4993285217833316801}
@@ -653,12 +658,6 @@ PrefabInstance:
 --- !u!4 &1114295624063366801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1669927826325936531, guid: 823a7e236e71fd24b87d1cd5f5064df2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1754718810014953218}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3502687928032498516 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2938052751538404438, guid: 823a7e236e71fd24b87d1cd5f5064df2,
     type: 3}
   m_PrefabInstance: {fileID: 1754718810014953218}
   m_PrefabAsset: {fileID: 0}
@@ -674,6 +673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dde5169b27b6745bcb0deba200a6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6227161471546289876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5634373843089932758, guid: 823a7e236e71fd24b87d1cd5f5064df2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1754718810014953218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8579956048515964963 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8018698601844772641, guid: 823a7e236e71fd24b87d1cd5f5064df2,
