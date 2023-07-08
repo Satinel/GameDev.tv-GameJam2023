@@ -5,7 +5,7 @@ using UnityEngine;
 public class Portrait : MonoBehaviour
 {
     [SerializeField] Transform _hidingPosition;
-    [SerializeField] GameObject _portraitCamera;
+    [SerializeField] Transform _lookAtTarget;
 
     PlayerControls _controls;
     Squisher _squisher;
@@ -41,7 +41,6 @@ public class Portrait : MonoBehaviour
 
     void Hide()
     {
-        _squisher.HideInPainting(_hidingPosition, _portraitCamera);
-        // _portraitCamera.SetActive(!_portraitCamera.activeSelf);
+        _squisher.HideInPainting(_hidingPosition, _lookAtTarget);
     }
 }

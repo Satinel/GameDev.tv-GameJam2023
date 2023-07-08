@@ -41,7 +41,6 @@ public class Squisher : MonoBehaviour
     float _routineDelta = 0f;
     PlayerControls _controls;
     PlayerHealth _playerHealth;
-    GameObject _hideCamera = null;
     const string _tightSpace = "TightSpace";
     const string _tunnel = "Tunnel";
 
@@ -282,7 +281,7 @@ public class Squisher : MonoBehaviour
         }
     }
 
-    public void HideInPainting(Transform painting, GameObject camera)
+    public void HideInPainting(Transform painting, Transform lookAtTarget)
     {
         if(!_canSquish) { return; }
 
@@ -294,11 +293,7 @@ public class Squisher : MonoBehaviour
             _hider.LeaveStealth();
             _isHiding = false;
             Unsquish();
-            if(_hideCamera)
-            {
-                _hideCamera.SetActive(false);
-            }
-            _hideCamera = null;
+            _camera.LookAt = _defaultCamFocus;
             return;
         }
 
@@ -322,11 +317,7 @@ public class Squisher : MonoBehaviour
         FrontSquish();
         transform.position = painting.position;
         transform.rotation = painting.rotation;
-        _hideCamera = camera;
-        if(_hideCamera)
-        {
-            _hideCamera.SetActive(true);
-        }
+        _camera.LookAt = lookAtTarget;
         _isHiding = true;
         _mover.HideInteractable();
     }
@@ -341,11 +332,7 @@ public class Squisher : MonoBehaviour
             _hider.LeaveStealth();
             _isHiding = false;
             Unsquish();
-            if(_hideCamera)
-            {
-                _hideCamera.SetActive(false);
-            }
-            _hideCamera = null;
+            _camera.LookAt = _defaultCamFocus;
         }
 
     }
