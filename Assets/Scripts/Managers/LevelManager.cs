@@ -12,9 +12,9 @@ public class LevelManager : MonoBehaviour
 {
     public event Action OnLevelCompleted;
     public event Action OnLevelStarted;
-    [SerializeField] float _unWipeDelay = 1f;
+    [SerializeField] float _unWipeDelay = 0.2f;
     [SerializeField] float _wipeDelay = 0.1f;
-    [SerializeField] float _unWipeSpeed = 1f;
+    [SerializeField] float _unWipeSpeed = 1.25f;
     [SerializeField] float _wipeSpeed = 0.5f;
     [SerializeField] Image _image;
     [SerializeField] Canvas _statCanvas;
@@ -68,12 +68,12 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return _unWipeDelay;
+        yield return new WaitForSecondsRealtime(_unWipeDelay);
 
         while(_image.fillAmount > 0)
         {
             _image.fillAmount -= _unWipeSpeed * Time.unscaledDeltaTime;
-            yield return null;
+            yield return new WaitForSecondsRealtime(0.01f);
         }
         _freelookCamera.enabled = true;
         StartTimer();

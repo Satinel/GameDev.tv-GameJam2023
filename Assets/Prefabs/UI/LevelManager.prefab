@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72d568415e3c9747a5fdb8aefb54abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unWipeDelay: 1
+  _unWipeDelay: 0.5
   _wipeDelay: 0.1
-  _unWipeSpeed: 0.25
+  _unWipeSpeed: 0.5
   _wipeSpeed: 0.5
   _image: {fileID: 4894229785586829403}
   _statCanvas: {fileID: 252162203344346344}
@@ -133,6 +133,8 @@ MonoBehaviour:
   _nextLevelButton: {fileID: 8088088244316716945}
   _timerTextField: {fileID: 9186520747733838315}
   _statsText: {fileID: 5749227304451159480}
+  _cutsceneManager: {fileID: 0}
+  _freelookCamera: {fileID: 0}
 --- !u!1 &4263834618479124668
 GameObject:
   m_ObjectHideFlags: 0

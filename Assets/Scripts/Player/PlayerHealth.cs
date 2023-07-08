@@ -17,7 +17,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Canvas _defeatCanvas;
     [SerializeField] Canvas _mainMenuCanvas;
     [SerializeField] Image _faderImage;
-    [SerializeField] float _wipeDelay = 0.5f;
+    [SerializeField] float _wipeDelay = 0.15f;
+    [SerializeField] float _wipeSpeed = 1.5f;
     [SerializeField] GameObject _retryButton;
     [SerializeField] LevelManager _levelManager;
     [SerializeField] AudioClip _hurtAudioClip;
@@ -129,7 +130,7 @@ public class PlayerHealth : MonoBehaviour
 
         while(_faderImage.fillAmount < 1)
         {
-            _faderImage.fillAmount += Time.deltaTime;
+            _faderImage.fillAmount += _wipeSpeed * Time.deltaTime;
             yield return null;
         }
 
