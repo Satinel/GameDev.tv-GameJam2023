@@ -316,7 +316,6 @@ public class Squisher : MonoBehaviour
         }
 
         _mover.SetIsHiding(true);
-        _mover.HideInteractable();
         _hider.AttemptStealth();
         _previousPosition = transform.position;
         _previousRotation = transform.rotation;
@@ -329,6 +328,7 @@ public class Squisher : MonoBehaviour
             _hideCamera.SetActive(true);
         }
         _isHiding = true;
+        _mover.HideInteractable();
     }
 
     void ForceUnhide()

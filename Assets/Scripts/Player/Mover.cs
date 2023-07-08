@@ -65,7 +65,7 @@ public class Mover : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main.transform;
-        _controls.Player.ToggleWalk.started += _ => ToggleWalk();
+        // _controls.Player.ToggleWalk.started += _ => ToggleWalk();
         _controls.Player.Interact.performed += _ => HideInteractable();
     }
 
