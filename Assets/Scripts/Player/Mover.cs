@@ -167,6 +167,7 @@ public class Mover : MonoBehaviour
     {
         _isHiding = value;
         _animator.SetBool(HIDE_HASH, value);
+        HideInteractable();
     }
 
     public void ShowInteractable()

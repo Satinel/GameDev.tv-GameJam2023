@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hider : MonoBehaviour
 {
     public bool IsHidden { get; private set; } = false;
 
-    int _alertedEnemies = 0;
+    // int _alertedEnemies = 0;
 
     public void AttemptStealth()
     {
-        if(_alertedEnemies <= 0)
-        {
+        // if(_alertedEnemies <= 0)
+        // {
             IsHidden = true;
-        }
+        // }
     }
 
     public void LeaveStealth()
@@ -21,8 +19,8 @@ public class Hider : MonoBehaviour
         IsHidden = false;
     }
 
-    public void AdjustAlertedEnemiesCount(int count)
-    {
-        _alertedEnemies += count;
-    }
+    // public void AdjustAlertedEnemiesCount(int count)
+    // {
+    //     _alertedEnemies += count;
+    // }
 }

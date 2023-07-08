@@ -58,7 +58,7 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
                 _hider = _player.GetComponent<Hider>();
             }
 
-            if(_hider.IsHidden) { return; }
+            // if(_hider.IsHidden) { return; }
 
             Vector3 directionToTarget = (_player.position - transform.position).normalized;
 
@@ -66,12 +66,12 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
             {
                 float distanceToTarget = Vector3.Distance(transform.position, _player.position);
 
-                if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _obstructionMask))
+                if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _obstructionMask) && !_hider.IsHidden)
                 {
                     _lastSeenPosition = _player.position;
                     if(!_canSeePlayer)
                     {
-                        _hider.AdjustAlertedEnemiesCount(1);
+                        // _hider.AdjustAlertedEnemiesCount(1);
                         _wasSeen = true;
                     }
                     _canSeePlayer = true;
@@ -81,7 +81,7 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
                 {
                     if(_canSeePlayer)
                     {
-                        _hider.AdjustAlertedEnemiesCount(-1);
+                        // _hider.AdjustAlertedEnemiesCount(-1);
                         enemyAI.Chase(_lastSeenPosition);
                     }
                     _canSeePlayer = false;
@@ -91,7 +91,7 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
             {
                 if(_canSeePlayer)
                 {
-                    _hider.AdjustAlertedEnemiesCount(-1);
+                    // _hider.AdjustAlertedEnemiesCount(-1);
                     enemyAI.Chase(_lastSeenPosition);
                 }
                 _canSeePlayer = false;
@@ -100,7 +100,7 @@ public class EnemyVision : MonoBehaviour // All thanks to https://www.youtube.co
         else if(_canSeePlayer)
         {
             _canSeePlayer = false;
-            _player.GetComponent<Hider>().AdjustAlertedEnemiesCount(-1);
+            // _player.GetComponent<Hider>().AdjustAlertedEnemiesCount(-1);
             enemyAI.Chase(_lastSeenPosition);
         }
     }
