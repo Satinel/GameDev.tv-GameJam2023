@@ -7,6 +7,7 @@ using TMPro;
 using System;
 using System.Collections.Generic;
 using Cinemachine;
+using System.Runtime.InteropServices;
 
 public class LevelManager : MonoBehaviour
 {
@@ -205,6 +206,16 @@ public class LevelManager : MonoBehaviour
 
     public void CopyStats()
     {
-        GUIUtility.systemCopyBuffer = _copyStats;
+        if(Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            CopyToClipboard(_copyStats); // See below
+        }
+        else
+        {
+            GUIUtility.systemCopyBuffer = _copyStats;
+        }
     }
+
+    [DllImport("__Internal")] // https://pudding-entertainment.medium.com/unity-webgl-add-a-share-button-93831b3555e9
+    private static extern void CopyToClipboard(string textToCopy);
 }
