@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalTightSpace
       objectReference: {fileID: 0}
+    - target: {fileID: 3643876727937149033, guid: 2863a6ecd9491754ba9174d786964f95,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5061748719556509281, guid: 2863a6ecd9491754ba9174d786964f95,
         type: 3}
       propertyPath: m_RootOrder
