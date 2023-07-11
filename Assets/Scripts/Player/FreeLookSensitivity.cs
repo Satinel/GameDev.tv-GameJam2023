@@ -6,13 +6,16 @@ public class FreeLookSensitivity : MonoBehaviour
 {
     [SerializeField] CinemachineFreeLook _camera;
     [SerializeField] Slider _slider;
+    [SerializeField] Slider _ySlider;
     [SerializeField] Toggle _xInvert;
     [SerializeField] Toggle _yInvert;
 
     void Start()
     {
         _slider.value = PlayerPrefs.GetFloat("LookSensitivity", 0.125f);
-        // _camera.m_YAxis.m_MaxSpeed = _slider.value;
+        _ySlider.value = PlayerPrefs.GetFloat("YLookSensitivity", 0.001f);
+        _camera.m_XAxis.m_MaxSpeed = _slider.value;
+        _camera.m_YAxis.m_MaxSpeed = _ySlider.value;
         if(PlayerPrefs.GetInt("InvertX", 0) == 0)
         {
             _xInvert.isOn = false;
@@ -46,6 +49,12 @@ public class FreeLookSensitivity : MonoBehaviour
         _camera.m_XAxis.m_MaxSpeed = _slider.value;
         PlayerPrefs.SetFloat("LookSensitivity", _slider.value);
         // _camera.m_YAxis.m_MaxSpeed = _slider.value;
+    }
+
+    public void AdjustYSensitivity()
+    {
+        _camera.m_YAxis.m_MaxSpeed = _ySlider.value;
+        PlayerPrefs.SetFloat("YLookSensitivity", _ySlider.value);
     }
 
     public void InvertX()
