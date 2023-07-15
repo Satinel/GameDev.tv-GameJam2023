@@ -11,6 +11,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _startButton;
     [SerializeField] GameObject _audioMenuButton;
     [SerializeField] GameObject _creditsMenuButton;
+    [SerializeField] bool _playIntro = false;
+
+    const string _intro = "Intro";
 
     void Start()
     {
@@ -21,7 +24,14 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         _audioSource.Stop();
-        SceneManager.LoadScene(1);
+        if(_playIntro)
+        {
+            SceneManager.LoadScene(_intro);
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     public void ToggleAudioCanvas()
